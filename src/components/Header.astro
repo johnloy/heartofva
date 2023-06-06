@@ -1,0 +1,32 @@
+---
+import MainNav from './MainNav.astro'
+import ThemeToggle from './ThemeToggle.astro'
+---
+
+<header class="container">
+  <div class="masthead">
+    <a class="logo" href="/">AA Heart of Virginia</a>
+    <p>Charlottesville and Central Virginia</p>
+  </div>
+  <MainNav />
+  <p class="vac-header">District (No. 9) of The Virginia Area Committee of A.A (V.A.C.)</p>
+  <p class="contact-header"><strong>Call or email 24/7</strong> (434) 293-6565 • <a href="mailto:aacharlottesville@gmail.com">aacharlottesville@gmail.com</a></p>
+  <ThemeToggle />
+</header>
+
+<style>
+  header.container {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .vac-info {
+    flex-basis: 100%;
+  }
+</style>

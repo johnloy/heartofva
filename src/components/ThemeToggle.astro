@@ -1,0 +1,199 @@
+---
+---
+
+<label class="theme-toggle" title="Toggle theme" tabindex="0">
+  <input type="checkbox" />
+  <span class="theme-toggle-sr">Toggle theme</span>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    fill="currentColor"
+    class="theme-toggle__expand"
+    viewBox="0 0 32 32"
+  >
+    <clipPath id="theme-toggle__expand__cutout">
+      <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
+    </clipPath>
+    <g clip-path="url(#theme-toggle__expand__cutout)">
+      <circle cx="16" cy="16" r="8.4"></circle>
+      <path
+        d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z"
+      ></path>
+    </g>
+  </svg>
+</label>
+
+<script is:inline>
+  const STORAGE_KEY = 'theme-toggle'
+
+  const themeToggleEl = document.querySelector('.theme-toggle')
+  const themeToggleCheckbox = themeToggleEl.querySelector(
+    'input[type="checkbox"]'
+  )
+
+  const getColorPreference = () => {
+    if (localStorage.getItem(STORAGE_KEY))
+      return localStorage.getItem(STORAGE_KEY)
+    else
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+  }
+
+  const reflectPreference = () => {
+    document.firstElementChild.setAttribute('data-theme', theme.value)
+    localStorage.setItem(STORAGE_KEY, theme.value)
+  }
+
+  // Immediately read color preference from localStorage or
+  // the system setting
+  const theme = {
+    value: getColorPreference()
+  }
+
+  // Immediately set html[data-theme] so there is no flash of a
+  // default theme before activating the user's preference
+  reflectPreference()
+  if (theme.value == 'dark') themeToggleCheckbox.checked = true
+
+  // Handle toggle event
+  themeToggleEl.addEventListener('change', () => {
+    theme.value = themeToggleCheckbox.checked ? 'dark' : 'light'
+    reflectPreference()
+  })
+
+  // Sync with system setting when it changes
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', ({ matches: isDark }) => {
+      theme.value = isDark ? 'dark' : 'light'
+      reflectPreference()
+    })
+</script>
+
+<style>
+  .theme-toggle {
+    background: red;
+    border-radius: 2rem;
+    margin: 0;
+    line-height: 1rem;
+    padding: 10px;
+    height: 2rem;
+    min-width: 2rem;
+    width: auto;
+    display: flex;
+    font-size: 0.75rem;
+    border: none;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .theme-toggle svg {
+    display: inline-block;
+    height: 100%;
+  }
+
+  .theme-toggle.theme-toggle--reversed .theme-toggle__expand {
+    transform: scale(-1, 1);
+  }
+
+  .theme-toggle {
+    --theme-toggle__expand--duration: 500ms;
+  }
+  .theme-toggle__expand g circle,
+  .theme-toggle__expand g path {
+    transform-origin: center;
+    transition: transform calc(var(--theme-toggle__expand--duration) * 0.65)
+      cubic-bezier(0, 0, 0, 1.25)
+      calc(var(--theme-toggle__expand--duration) * 0.35);
+  }
+  .theme-toggle__expand :first-child path {
+    transition-property: transform, d;
+    transition-duration: calc(var(--theme-toggle__expand--duration) * 0.6);
+    transition-timing-function: cubic-bezier(0, 0, 0.5, 1);
+  }
+
+  .theme-toggle--toggled:not(label).theme-toggle .theme-toggle__expand g circle,
+  .theme-toggle
+    input[type='checkbox']:checked
+    ~ .theme-toggle__expand
+    g
+    circle {
+    transform: scale(1.4);
+    transition-delay: 0s;
+  }
+  .theme-toggle--toggled:not(label).theme-toggle .theme-toggle__expand g path,
+  .theme-toggle input[type='checkbox']:checked ~ .theme-toggle__expand g path {
+    transform: scale(0.75);
+    transition-delay: 0s;
+  }
+  .theme-toggle--toggled:not(label).theme-toggle
+    .theme-toggle__expand
+    :first-child
+    path,
+  .theme-toggle
+    input[type='checkbox']:checked
+    ~ .theme-toggle__expand
+    :first-child
+    path {
+    d: path('M-9 3h25a1 1 0 0017 13v30H0Z');
+    transition-delay: calc(var(--theme-toggle__expand--duration) * 0.4);
+    transition-timing-function: cubic-bezier(0, 0, 0, 1.25);
+  }
+
+  @supports not (d: path('')) {
+    .theme-toggle--toggled:not(label).theme-toggle
+      .theme-toggle__expand
+      :first-child
+      path,
+    .theme-toggle
+      input[type='checkbox']:checked
+      ~ .theme-toggle__expand
+      :first-child
+      path {
+      transform: translate3d(-9px, 14px, 0);
+    }
+  }
+  .theme-toggle input[type='checkbox'] {
+    display: none;
+  }
+  .theme-toggle-sr {
+    display: inline-block;
+    max-width: 0;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+
+    /* position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+    transition: all 0.5s ease-in-out; */
+  }
+
+  .theme-toggle:focus-visible .theme-toggle-sr,
+  .theme-toggle:hover .theme-toggle-sr {
+    max-width: 100%;
+    /* position: static;
+    clip: auto !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    height: auto !important;
+    margin: auto !important;
+    overflow: visible !important;
+    width: 100% !important;
+    white-space: normal !important; */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle:not(.theme-toggle--force-motion) * {
+      transition: none !important;
+    }
+  }
+</style>

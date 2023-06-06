@@ -1,0 +1,42 @@
+---
+import path from 'path'
+import mainNavItems from '../content/main-nav.yml'
+import MeetingsNav from './MeetingsNav.astro'
+const mainNavPages = await Astro.glob('../pages/**/*.astro')
+
+const mainNavPagesData = Object.fromEntries(
+  mainNavPages.map((page) => [
+    path.parse(page.file).name,
+    {
+      title: page.title,
+      url: page.url
+    }
+  ])
+)
+---
+
+<nav>
+  <ul>
+    {
+      mainNavItems.map((item) => {
+        const itemObj = mainNavPagesData[item]
+        return (
+          <li data-name={item}>
+            {item === 'meetings' ? (
+              <MeetingsNav title={itemObj.title} url={itemObj.url} />
+            ) : (
+              <a href={itemObj.url}>{itemObj.title}</a>
+            )}
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>
+
+<style>
+  li {
+    position: relative;
+  }
+
+</style>

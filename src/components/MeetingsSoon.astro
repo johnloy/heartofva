@@ -1,0 +1,77 @@
+<section id="meetings-soon">
+  <h2>Meetings Happening Soon</h2>
+  <div></div>
+  <div>Meeting guide App</div>
+</section>
+
+<script>
+  // @ts-nocheck
+  // import { $ } from '../assets/common.js'
+  // import day from 'dayjs'
+  // import timezonePlugin from 'dayjs/plugin/timezone'
+  // import utcPlugin from 'dayjs/plugin/utc'
+  // import { Low as DB } from 'lowdb'
+  // import { SessionStorage } from 'lowdb/browser'
+  // import { html, render } from 'lit'
+
+  // day.extend(utcPlugin)
+  // day.extend(timezonePlugin)
+
+  // const HOVA_TZ = 'America/New_York'
+
+  // const fetchMeetings = async () => {
+  //   const response = await fetch(
+  //     'https://heartofvadev.wpengine.com/wp-admin/admin-ajax.php?action=meetings'
+  //   )
+  //   return response.json()
+  // }
+
+  // const db = new DB(new SessionStorage('hova-meetings'), [])
+
+  // const userTime = day().tz(HOVA_TZ)
+
+  // const renderMeetings = (meetingsSoon) => {
+  //   const rendered = html`<ul>
+  //     ${meetingsSoon.map((m) => html`<li>${m.name}</li>`)}
+  //   </ul>`
+  //   render(rendered, $('#meetings-soon'))
+  // }
+
+  // const getMeetings = async () => {
+  //   await db.read()
+  //   let meetings = db.data
+
+  //   if (!meetings) {
+  //     db.data = await fetchMeetings()
+  //     await db.write()
+  //     meetings = db.data
+  //   }
+
+  //   meetings = db.data.filter((m) => {
+  //     const [meetingHour, meetingMin] = m.time.split(':')
+  //     const meetingEndTime = day()
+  //       .tz(HOVA_TZ)
+  //       .set('day', m.day)
+  //       .set('hour', meetingHour)
+  //       .set('minute', meetingMin)
+  //       // .add(1, 'day')
+  //       .add(50, 'minutes')
+
+  //     return (
+  //       meetingEndTime.day() === userTime.day() &&
+  //       userTime.hour() <= meetingEndTime.hour() &&
+  //       userTime.minute() <= meetingEndTime.minute()
+  //     )
+  //   })
+
+  //   renderMeetings(meetings)
+  // }
+
+  // getMeetings()
+</script>
+
+<style>
+  #meetings-soon {
+    grid-area: meetings-soon;
+  }
+</style>

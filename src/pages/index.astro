@@ -1,37 +1,205 @@
 ---
-import Layout from '../components/Layout.astro';
+import Layout from '../layouts/BaseLayout.astro'
+import MeetingsSoon from '../components/MeetingsSoon.astro'
+
+export const title = 'Home'
 ---
 
-<Layout title="Astro Quickstart">
-	<main>
-    <svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>     
-    <div id="content">
-      <div class="header">
-        <h1>Quickstart Template</h1>
-        <div class="logo">
-          <img src="https://user-images.githubusercontent.com/43764894/223559085-8ff69d2f-4247-427f-a3a6-d2036b00082a.png" alt="Netlify plus Astro banner">
-        </div>
-        <h2>
-          This is a bare-bones Astro project that has everything you need to quickly deploy it to Netlify
-        </h2>
-        <div class="bttns">
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-quickstart" class="bttn primary">Deploy to Netlify</a>
-          <a href="https://github.com/netlify-templates/astro-quickstart" class="bttn secondary">View Repo</a>
-        </div>
-      </div>
-			<div class="resource-list">
+<Layout title="AA Heart of Virginia, District No. 9">
+  <main class="container">
+    <aside id="quote">
+      <blockquote>
+        <p>
+          Alcoholics Anonymous is a fellowship of people who share their
+          experience, strength and hope with each other that they may solve
+          their common problem and help others to recover from alcoholism.
+        </p>
+        <p>The only requirement for membership is a desire to stop drinking.</p>
+        <footer>
+          —<cite>AA Preamble</cite>
+        </footer>
+      </blockquote>
+    </aside>
+
+    <section id="new-to-aa">
+      <h2>New to AA?</h2>
+      <p>
+        <a href="https://www.aa.org/aa-you">Is A.A. for you?</a>
+        <a href="https://www.aa.org/self-assessment">Take a self-assessment</a>
+      </p>
+      <ul>
+        <li><a href="https://www.aa.org/what-is-aa">How AA works</a></li>
+        <li><a href="https://www.aa.org/what-is-aa">Contact a member</a></li>
+        <li><a href="/meetings">Find a meeting</a></li>
+        <li>
+          <a href="https://www.aa.org/information-about-meetings"
+            >What to expect at an A.A. meeting</a
+          >
+        </li>
+        <li><a href="/meetings">Introductory literature</a></li>
+      </ul>
+    </section>
+
+    <MeetingsSoon />
+
+    <section id="regions-served">
+      <h2>Regions Served</h2>
+      <ul>
+        <li>Charlottesville</li>
+        <li>Albemarle County</li>
+        <li>Green County</li>
+        <li>Madison County</li>
+        <li>Orange County</li>
+        <li>Luisa County</li>
+        <li>Nelson County</li>
+        <li>Buckingham County</li>
+      </ul>
+      <p>
+        Websites and contact information for other areas of Virginia can be
+        found on the <a
+          href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
+          >Virginia Alchoholics Anonymous website</a
+        >
+      </p>
+    </section>
+
+    <section id="other-situations">
+      <p>Leaving treatment or corrections?</p>
+      <p>Is a friend or family member struggling with alcohol addiction?</p>
+    </section>
+
+    <section id="member-resources">
+			<header>
+				<h2>Member Resources</h2>
+				<p id="daily-reflection">Today's daily reflection (June 6)</p>
+			</header>
+      <section>
+        <h3 id="general-resources">General</h3>
         <ul>
+          <li>AA literature</li>
+          <li><a href="./aa-glossary">AA glossary</a></li>
+          <li>AA Grapevine and La Viña</li>
+          <li>Virginia AA member services</li>
+          <li><a href="./archives">Archives of AA Heart of Virginia District</a></li>
+        </ul>
+      </section>
+      <section id="resources-for-service-positions">
+        <h3>For Service Positions</h3>
+        <ul>
+          <li>Group Treasurers</li>
+          <li>Intergroup Representatives</li>
+          <li>General Service Representatives (G.S.R)</li>
+        </ul>
+      </section>
+      <section id="related-organizations">
+        <h3>Related Organizations</h3>
+        <ul>
+          <li>Alcoholics Anonymous World Services (aka G.S.O.)</li>
+          <li>Virginia Area Committee of A.A. (V.A.C.)</li>
           <li>
-            <a href="https://ntl.fyi/38O9wmY">Netlify Blog: Astro posts</a>
-					</li>
-          <li>
-            <a href="https://ntl.fyi/3KHGtyz">Netlify Docs</a>
-          </li>
-          <li>
-            <a href="https://docs.astro.build/en/getting-started/">Astro Docs</a>
+            <a
+              href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
+              >Other Virginia Districts
+            </a>
           </li>
         </ul>
-      </div>
-    </div>
-	</main>
+      </section>
+    </section>
+  </main>
+
+  <style>
+    main {
+      display: grid;
+      grid-template:
+        'quote quote quote' min-content
+        'meetings-soon meetings-soon regions-served' min-content
+        'new-to-aa other-situations other-situations' min-content
+        'member-resources member-resources member-resources' auto / 1fr 1fr 1fr;
+      grid-gap: 1rem;
+    }
+
+    #regions-served {
+      grid-area: regions-served;
+      margin: 0;
+    }
+
+    #regions-served h2 {
+      margin-bottom: 1rem;
+    }
+
+    #regions-served li {
+      list-style-type: none;
+      display: inline-block;
+      white-space: no-wrap;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 2em;
+      font-size: 0.875rem;
+      /* display: list-item; */
+    }
+
+    #new-to-aa {
+      grid-area: new-to-aa;
+    }
+
+    /* #regions-served li::after {
+		content: '-';
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		background: pink;
+	}
+	#regions-served li::before {
+		content: '-';
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		background: green;
+	} */
+
+    #regions-served ul {
+      display: flex;
+      justify-content: flex-start;
+      column-gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    /* #regions-served ul::first-line::before {
+		content: 'hey';
+		display: block;
+		background: red;
+	} */
+
+    #quote {
+      justify-self: center;
+      grid-area: quote;
+      /* border-left: 0; */
+    }
+
+    #quote blockquote {
+      border-left: 0;
+      width: 100%;
+      max-width: 50rem;
+    }
+
+    #member-resources {
+      grid-area: member-resources;
+      display: flex;
+      column-gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      justify-content: space-between;
+    }
+
+    #member-resources header {
+			width: 100%;
+    }
+
+		#daily-reflection {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+  </style>
 </Layout>

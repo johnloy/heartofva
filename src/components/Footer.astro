@@ -1,0 +1,63 @@
+---
+---
+
+<footer class="container">
+  <section class="office-address">
+    <h2>Office</h2>
+    <address>
+      Heart of Virginia District Intergroup Office<br />
+      1807 Emmet Street N, Suite 3-A<br />
+      Charlottesville VA 22901
+    </address>
+  </section>
+
+  <section class="mailing-address">
+    <h2>Mail</h2>
+    <address>
+      Heart of Virginia District Service Committee <br />
+      PO Box 7552<br />
+      Charlottesville, VA 22906
+    </address>
+    <address>
+      Heart of Virginia District Intergroup<br />
+      PO Box 6911<br />
+      Charlottesville, VA 22906-023
+    </address>
+  </section>
+
+  <p>Sponsored by the Heart of Virginia District Intergroup</p>
+  <p>© 2016 Heart of Virginia</p>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    justify-content: space-between;
+  }
+
+  footer > * {
+    flex-basis: fit-content;
+  }
+
+  footer > .office-address,
+  footer > .mailing-address {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: fit-content;
+    flex-grow: 1;
+    column-gap: 1rem;
+    position: relative;
+  }
+
+  footer h2 {
+    width: 100%;
+  }
+
+  footer > .mailing-address {
+    flex-grow: 2;
+  }
+
+
+</style>

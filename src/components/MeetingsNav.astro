@@ -1,0 +1,295 @@
+---
+const { title, url } = Astro.props
+---
+
+<details role="list" class="meetings-nav">
+  <summary aria-haspopup="listbox">
+    <a href={url}>{title}</a>
+  </summary>
+  <section
+    role="listbox"
+    aria-labelledby="meetings-nav-title"
+    aria-orientation="horizontal"
+    class="meetings-nav-dropdown"
+  >
+    <h1 id="meetings-nav-title" class="sr-only">Filter Meetings List</h1>
+    <section>
+      <form id="meetings-nav-weekday-filter">
+        <fieldset>
+          <legend><h2>Weekday</h2></legend>
+          <div class="radio-button-group">
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="0" />
+              <abbr title="Sunday" class="radio-button-group__label">S</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="1" />
+              <abbr title="Monday" class="radio-button-group__label">M</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="2" />
+              <abbr title="Tuesday" class="radio-button-group__label">T</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="3" />
+              <abbr title="Wednesday" class="radio-button-group__label">W</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="4" />
+              <abbr title="Thursday" class="radio-button-group__label">T</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="5" />
+              <abbr title="Friday" class="radio-button-group__label">F</abbr>
+            </label>
+            <label class="radio-button-group__option">
+              <input type="radio" name="weekday" value="6" />
+              <abbr title="Saturday" class="radio-button-group__label">S</abbr>
+            </label>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+    <section id="meetings-nav-location-filter"></section>
+  </section>
+</details>
+
+<script>
+  import { meetings } from '../assets/resources/meetings.js'
+  import { groupBy } from 'lodash-es'
+  import { $, $$, userTime } from '../assets/common'
+  import { html, render } from 'lit'
+
+  const navEl = document.querySelector('.meetings-nav')
+  const summaryEl = navEl.querySelector('summary')
+  const listBoxEl = navEl.querySelector('[role="listbox"]')
+
+  const toggleDetails = (which, e) => {
+    const isOpen = navEl.open
+    if (which === 'open' && !isOpen && e.relatedTarget !== listBoxEl) {
+      navEl.open = true
+      listBoxEl.classList.add('--open')
+    } else if (
+      which === 'close' &&
+      isOpen &&
+      !navEl.contains(e.relatedTarget)
+    ) {
+      listBoxEl.classList.remove('--open')
+      setTimeout(() => (navEl.open = false), 400)
+    }
+  }
+
+  summaryEl.addEventListener('click', (e) => {
+    if (!navEl.open && e.target.localName !== 'a') {
+      toggleDetails('open', e)
+      e.preventDefault()
+    } else if (e.currentTarget === null) {
+      toggleDetails('close', e)
+    }
+    // if (navEl.open && e.target.localName !== 'a') e.preventDefault()
+  })
+
+  const regionsByCounty = [
+    [
+      'Cville & Albemarle',
+      [
+        'Charlottesville',
+        'Crozet',
+        'Earlysville',
+        'Greenwood',
+        'Keswick',
+        'North Garden',
+        'Scottsville'
+      ]
+    ],
+    [
+      'Green, Madison, & Orange',
+      ['Barboursville', 'Gordonsville', 'Orange', 'Ruckersville']
+    ],
+    ['Louisa & Fluvana', ['Louisa', 'Palmyra', 'Scottsville']],
+    ['Nelson & Buckingham', ['Arrington', 'Dilwyn', 'Lovingston']]
+  ]
+
+  const renderRegionMeetings = (meetingsByLocation) => {
+    const template = html`
+      <h2 class="sr-only">Location</h2>
+      ${regionsByCounty.map((region) => {
+        return html`
+          <section>
+            <h3>${region[0]}</h3>
+            <ul>
+              ${region[1].map(
+                (location) =>
+                  html`<li>
+                    ${location}&nbsp;<span
+                      >${meetingsByLocation[location] ? meetingsByLocation[location].length : 0}</span
+                    >
+                  </li>`
+              )}
+            </ul>
+          </section>
+        `
+      })}
+    `
+    render(template, $('#meetings-nav-location-filter'))
+  }
+
+  const weekdayFilterInputs = $$(
+    '#meetings-nav-weekday-filter input[type="radio"]'
+  )
+
+  const getSelectedDay = () =>
+    $('#meetings-nav-weekday-filter').elements.weekday.value
+
+  const init = async () => {
+    const today = userTime().day()
+
+    const meetingsByDay = Object.fromEntries(
+      Object.entries(groupBy(await meetings, 'day')).map(
+        ([day, dayMeetings]) => [day, groupBy(dayMeetings, 'region')]
+      )
+    )
+
+    weekdayFilterInputs[today].checked = true
+
+    console.log(meetingsByDay)
+    renderRegionMeetings(meetingsByDay[today])
+
+    $('#meetings-nav-weekday-filter').addEventListener('change', (e) =>
+      renderRegionMeetings(meetingsByDay[e.target.value])
+    )
+  }
+
+  init()
+
+  summaryEl.addEventListener('mouseenter', toggleDetails.bind(null, 'open'))
+  navEl.addEventListener('mouseleave', toggleDetails.bind(null, 'close'))
+</script>
+
+<style>
+  .meetings-nav-dropdown {
+    background-color: var(--background-color);
+    border: 1px solid var(--form-element-border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    width: 100vw;
+    z-index: 9999;
+    --font-size: 1rem;
+
+    position: fixed;
+    left: 1.5rem;
+    translate: 0;
+    max-width: calc(100vw - 2 * 1.5rem);
+  }
+
+  @media screen and (min-width: 50rem) {
+    .meetings-nav-dropdown {
+      position: absolute;
+      max-width: 34rem;
+      left: 50%;
+
+      opacity: 0;
+      transform: translate(-50%, -0.5rem);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+
+      &.--open {
+        opacity: 1;
+        transform: scale(1) translate(-50%, 0);
+      }
+    }
+  }
+
+  :where(.meetings-nav-dropdown) > section {
+    margin-bottom: 1.5rem;
+  }
+
+  :where(.meetings-nav-dropdown) > section:last-child {
+    margin-bottom: 0;
+  }
+
+  .radio-button-group {
+    display: flex;
+    column-gap: 1rem;
+    line-height: 1em;
+  }
+
+  .radio-button-group__option {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .radio-button-group__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border: 0 !important;
+    line-height: 1em;
+    cursor: unset !important;
+    color: var(--color);
+  }
+
+  [type='radio']:checked ~ .radio-button-group__label {
+    --color: white;
+  }
+
+  :global([data-theme='dark'])
+    [type='radio']:checked
+    ~ .radio-button-group__label {
+    --color: black;
+  }
+
+  .radio-button-group__option > :where(input) {
+    margin: 0;
+    border: 0;
+  }
+
+  #meetings-nav-location-filter {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, calc(50% - 1rem / 2))
+    );
+    grid-gap: 1rem;
+  }
+
+  .meetings-nav :global(h3) {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  [role='listbox'] :global(ul) {
+    list-style: circle;
+    display: block;
+    padding-left: 1.25rem;
+  }
+
+  [role='listbox'] :global(li) {
+    list-style: circle;
+    display: list-item;
+    padding: 0;
+  }
+
+  details[role='list'][open] summary::before {
+    display: none;
+  }
+
+  [type='radio']:checked,
+  [type='radio']:checked:active,
+  [type='radio']:checked:focus {
+    --background-color: var(--mark-color);
+  }
+
+  :global([data-theme='dark']) [type='radio']:checked,
+  :global([data-theme='dark']) [type='radio']:checked:active,
+  :global([data-theme='dark']) [type='radio']:checked:focus {
+    --background-color: var(--primary-inverse);
+  }
+
+  [type='radio'] {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+</style>

@@ -9,10 +9,17 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@rollup/plugin-yaml": "^4.1.0",
     "astro": "^1.0.0",
     "prettier-plugin-astro": "^0.8.0"
   },
   "dependencies": {
-    "cypress": "^10.0.3"
+    "@picocss/pico": "^1.5.10",
+    "animate.css": "^4.1.1",
+    "cypress": "^10.0.3",
+    "dayjs": "^1.11.7",
+    "lit": "^2.7.4",
+    "lodash-es": "^4.17.21",
+    "lowdb": "^6.0.1"
   }
 }
