@@ -5,8 +5,7 @@ export const title = 'Meetings'
 ---
 
 <Layout title={title}>
-  <main class="container">
-    <h1>{title}</h1>
+  <div class="content-bg">
     <div
       id="tsml-ui"
       data-src="https://heartofvadev.wpengine.com/wp-admin/admin-ajax.php?action=meetings"
@@ -14,5 +13,32 @@ export const title = 'Meetings'
     >
     </div>
     <script src="https://tsml-ui.code4recovery.org/app.js" async></script>
-  </main>
+  </div>
 </Layout>
+
+<style>
+  div#tsml-ui {
+    margin: 0;
+    width: 100% !important;
+  }
+
+  :global(div.tsml-ui.tsml-ui) {
+    background-color: transparent !important;
+  }
+
+  :global(div.tsml-ui h1[class]) {
+    font-size: 2rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  :global(div.tsml-ui .container-fluid) {
+    padding: 0 !important;
+  }
+
+  :global(.tsml-ui [type="search"] + button.dropdown-toggle) {
+    width: auto;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+</style>

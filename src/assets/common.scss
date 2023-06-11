@@ -1,23 +1,14 @@
-:root {
-  // font-family: 'Crimson Pro', serif;
-  --font-size: 16px;
-}
+// :root {
+//   // font-family: 'Crimson Pro', serif;
+//   --font-size: 16px;
+// }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+// body {
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+// }
 
-body > header {
-  display: flex;
-  justify-content: space-between;
-  padding-block: var(--spacing);
-}
-
-body > main {
-  flex-grow: 1;
-}
 
 .sr-only {
 	border: 0 !important;

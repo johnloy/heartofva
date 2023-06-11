@@ -6,37 +6,45 @@ export const title = 'Home'
 ---
 
 <Layout title="AA Heart of Virginia, District No. 9">
-  <main class="container">
-    <aside id="quote">
+  <div class="layout">
+    <aside class="quote">
       <blockquote>
+        <span class="left-quote">“</span>
         <p>
           Alcoholics Anonymous is a fellowship of people who share their
           experience, strength and hope with each other that they may solve
           their common problem and help others to recover from alcoholism.
         </p>
-        <p>The only requirement for membership is a desire to stop drinking.</p>
+        <p>
+          The only requirement for membership is a desire to stop drinking.
+        </p><span class="right-quote">”</span>
         <footer>
-          —<cite>AA Preamble</cite>
+          —<cite><a href="https://www.aa.org/aa-preamble">AA Preamble</a></cite>
         </footer>
       </blockquote>
     </aside>
 
     <section id="new-to-aa">
       <h2>New to AA?</h2>
+      <a href="/new-to-aa">More</a>
       <p>
         <a href="https://www.aa.org/aa-you">Is A.A. for you?</a>
         <a href="https://www.aa.org/self-assessment">Take a self-assessment</a>
       </p>
       <ul>
         <li><a href="https://www.aa.org/what-is-aa">How AA works</a></li>
-        <li><a href="https://www.aa.org/what-is-aa">Contact a member</a></li>
         <li><a href="/meetings">Find a meeting</a></li>
+        <li><a href="/contact#phone-email">Contact a member</a></li>
         <li>
           <a href="https://www.aa.org/information-about-meetings"
             >What to expect at an A.A. meeting</a
           >
         </li>
-        <li><a href="/meetings">Introductory literature</a></li>
+        <li>
+          <a href="/new-to-aa#introductory-literature"
+            >Introductory literature</a
+          >
+        </li>
       </ul>
     </section>
 
@@ -44,7 +52,12 @@ export const title = 'Home'
 
     <section id="regions-served">
       <h2>Regions Served</h2>
-      <ul>
+      <p class="vac-header">
+        District (No. 9) of <a href="/aa-glossary#vac"
+          >The Virginia Area Committee of A.A (V.A.C.)</a
+        >
+      </p>
+      <ul class="regions-list">
         <li>Charlottesville</li>
         <li>Albemarle County</li>
         <li>Green County</li>
@@ -54,7 +67,7 @@ export const title = 'Home'
         <li>Nelson County</li>
         <li>Buckingham County</li>
       </ul>
-      <p>
+      <p class="other-va-regions">
         Websites and contact information for other areas of Virginia can be
         found on the <a
           href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
@@ -64,15 +77,46 @@ export const title = 'Home'
     </section>
 
     <section id="other-situations">
-      <p>Leaving treatment or corrections?</p>
-      <p>Is a friend or family member struggling with alcohol addiction?</p>
+      <h2>Are you…</h2>
+      <ul id="situation-list">
+        <li>
+          <a href="https://www.aa.org/aa-family-friend"
+            ><iconify-icon icon="fluent-emoji-high-contrast:people-hugging"
+            ></iconify-icon>Concerned about a friend or family member struggling
+            with alcohol addiction?</a
+          >
+        </li>
+        <li>
+          <a href="https://www.aa.org/aa-for-professionals"
+            ><iconify-icon icon="healthicons:social-work"></iconify-icon>A
+            professional working with alcholics?</a
+          >
+        </li>
+        <li>
+          <a href="https://aavirginia.org/treatment/"
+            ><iconify-icon icon="icon-park-solid:pull-door"
+            ></iconify-icon>Helping someone leaving treatment?</a
+          >
+        </li>
+        <li>
+          <a href="https://www.aa.org/press-media"
+            ><iconify-icon icon="fluent-emoji-high-contrast:newspaper"
+            ></iconify-icon>A member of the press or media?</a
+          >
+        </li>
+      </ul>
     </section>
 
     <section id="member-resources">
-			<header>
-				<h2>Member Resources</h2>
-				<p id="daily-reflection">Today's daily reflection (June 6)</p>
-			</header>
+      <header>
+        <h2>Member Resources</h2>
+        <p id="daily-reflection">
+          <a href="https://www.aa.org/daily-reflections">
+            <iconify-icon icon="uil:book-reader"></iconify-icon>Today's daily
+            reflection (June 6)
+          </a>
+        </p>
+      </header>
       <section>
         <h3 id="general-resources">General</h3>
         <ul>
@@ -80,7 +124,9 @@ export const title = 'Home'
           <li><a href="./aa-glossary">AA glossary</a></li>
           <li>AA Grapevine and La Viña</li>
           <li>Virginia AA member services</li>
-          <li><a href="./archives">Archives of AA Heart of Virginia District</a></li>
+          <li>
+            <a href="./archives">Archives of AA Heart of Virginia District</a>
+          </li>
         </ul>
       </section>
       <section id="resources-for-service-positions">
@@ -105,44 +151,68 @@ export const title = 'Home'
         </ul>
       </section>
     </section>
-  </main>
+  </div>
+</Layout>
 
-  <style>
-    main {
-      display: grid;
-      grid-template:
-        'quote quote quote' min-content
-        'meetings-soon meetings-soon regions-served' min-content
-        'new-to-aa other-situations other-situations' min-content
-        'member-resources member-resources member-resources' auto / 1fr 1fr 1fr;
-      grid-gap: 1rem;
-    }
+<style>
+  .layout {
+    display: grid;
+    grid-template:
+      'quote quote quote quote quote quote' min-content
+      'meetings-soon meetings-soon meetings-soon meetings-soon regions-served regions-served' min-content
+      'new-to-aa new-to-aa new-to-aa other-situations other-situations other-situations' min-content
+      'member-resources member-resources member-resources member-resources member-resources member-resources' auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem;
+  }
 
-    #regions-served {
-      grid-area: regions-served;
-      margin: 0;
-    }
+  .layout > :global(section) {
+    padding: 1rem 1.5rem 2rem;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    margin: 0;
+    background: rgba(255, 255, 255, 0.5);
+    /* border: 1px solid white; */
+    box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5);
+  }
 
-    #regions-served h2 {
-      margin-bottom: 1rem;
-    }
+  .layout > :global(section *:last-child) {
+    margin-block-end: 0;
+  }
 
-    #regions-served li {
-      list-style-type: none;
-      display: inline-block;
-      white-space: no-wrap;
-      padding: 0.25rem 0.5rem;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 2em;
-      font-size: 0.875rem;
-      /* display: list-item; */
-    }
+  .layout > :global(section h2) {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
 
-    #new-to-aa {
-      grid-area: new-to-aa;
-    }
+  #regions-served {
+    grid-area: regions-served;
+    margin: 0;
+  }
 
-    /* #regions-served li::after {
+  #regions-served h2 {
+    margin-bottom: 1rem;
+  }
+
+  #regions-served li {
+    list-style-type: none;
+    display: inline-block;
+    white-space: no-wrap;
+    padding: 0.25rem 0.75rem;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+    border-radius: 2em;
+    font-size: 0.875rem;
+    font-family: var(--font-family-sans);
+    background-color: #eff5f7;
+    box-shadow: 4px 6px 0 rgba(96, 111, 211, 0.25);
+    /* display: list-item; */
+  }
+
+  #new-to-aa {
+    grid-area: new-to-aa;
+  }
+
+  /* #regions-served li::after {
 		content: '-';
 		display: inline-block;
 		width: 1em;
@@ -157,49 +227,179 @@ export const title = 'Home'
 		background: green;
 	} */
 
-    #regions-served ul {
-      display: flex;
-      justify-content: flex-start;
-      column-gap: 0.5rem;
-      flex-wrap: wrap;
-      padding: 0;
-    }
+  #regions-served ul {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 0.75rem;
+    row-gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0;
+  }
 
-    /* #regions-served ul::first-line::before {
+  #regions-served li {
+    margin: 0;
+  }
+
+  /* #regions-served ul::first-line::before {
 		content: 'hey';
 		display: block;
 		background: red;
 	} */
 
-    #quote {
-      justify-self: center;
-      grid-area: quote;
-      /* border-left: 0; */
-    }
+  .quote {
+    justify-self: center;
+    grid-area: quote;
+    backdrop-filter: blur(8px);
+    padding-inline: 2rem;
+    position: relative;
+    border-radius: 8px;
 
-    #quote blockquote {
-      border-left: 0;
-      width: 100%;
-      max-width: 50rem;
-    }
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
 
-    #member-resources {
-      grid-area: member-resources;
-      display: flex;
-      column-gap: 1rem;
-      flex-wrap: wrap;
-      position: relative;
-      justify-content: space-between;
-    }
+    background: rgba(255, 255, 255, 0.5);
+    /* border: 1px solid white; */
+    box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5),
+      0 0 100px 0 rgba(96, 111, 211, 0.5);
+    /* border-left: 0; */
+  }
 
-    #member-resources header {
-			width: 100%;
-    }
+  .left-quote,
+  .right-quote {
+    position: absolute;
+    font-size: 1200%;
+    /* font-family: "Merriweather Sans", sans-serif; */
+    font-weight: 700;
+    color: white;
+    opacity: 0.6;
+    filter: drop-shadow(6px 10px 0 rgba(96, 111, 211, 0.5));
+    line-height: 1;
+  }
 
-		#daily-reflection {
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-  </style>
-</Layout>
+  .left-quote {
+    left: -0.45em;
+    top: 0.15em;
+  }
+
+  .right-quote {
+    bottom: -0.4em;
+    right: -0.45em;
+  }
+
+  .quote blockquote {
+    border-left: 0;
+    width: 100%;
+    max-width: 50rem;
+  }
+
+  #member-resources {
+    grid-area: member-resources;
+    display: flex;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  #member-resources section {
+    flex-basis: calc(1 / 3 * 100% - (2 * 1rem));
+  }
+
+  #member-resources h3 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  #member-resources section {
+    margin: 0;
+  }
+
+  #member-resources header {
+    width: 100%;
+  }
+
+  #daily-reflection {
+    position: absolute;
+    translate: 0 -50%;
+    top: 0;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    font-family: var(--font-family-sans);
+    font-weight: 300;
+    color: black;
+    padding: 1rem 1.5rem;
+    box-shadow: 8px 8px 0 rgba(96,111,211,0.2);
+  }
+
+  #daily-reflection a {
+    display: flex;
+    column-gap: 0.75rem;
+    align-items: center;
+  }
+
+  #daily-reflection iconify-icon {
+    margin-right: 0.5em;
+    scale: 1.8;
+    color: black;
+  }
+  #other-situations {
+    grid-area: other-situations;
+  }
+
+  #situation-list {
+    padding: 0;
+    margin: 0;
+  }
+
+  #situation-list li {
+    list-style-type: none;
+    font-family: var(--font-family-sans);
+    font-weight: 300;
+    margin: 0;
+  }
+
+  #situation-list li + li {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #situation-list a {
+    display: flex;
+    column-gap: 1rem;
+    align-items: flex-start;
+    padding-block: 1rem;
+    padding-inline-start: 0.5rem;
+  }
+  #situation-list a:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  #situation-list a iconify-icon {
+    color: black;
+    scale: 1.8;
+    translate: 0 0.3rem;
+  }
+
+  .quote p {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  .regions-list li {
+  }
+
+  .vac-header {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    color: black;
+    border-radius: 4px;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    background: white;
+  }
+
+  .other-va-regions {
+    font-size: 12px;
+    font-weight: 300;
+    color: black;
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/BaseLayout.astro'
+
+export const title = 'New to AA?'
+---
+
+<Layout title={title}>
+  <div class="content-bg">
+    <h1>{title}</h1>
+
+    <section id="intro">
+      <p>
+        If you are new to AA and seek answers to questions and guidance about
+        AA, we encourage you to <a href="/contact#phone-email"
+          >contact a member</a
+        > today!
+      </p>
+    </section>
+
+    <section id="is-aa-for-you">
+      <h2><a href="https://www.aa.org/aa-you">Is A.A. for you?</a></h2>
+      <p>
+        <a href="https://www.aa.org/self-assessment">Take a self-assessment</a>
+      </p>
+    </section>
+
+    <section id="learn-about-aa">
+      <h2>Learn About AA</h2>
+      <ul>
+        <li><a href="https://www.aa.org/what-is-aa">How AA works</a></li>
+        <li><a href="/meetings">Find a meeting</a></li>
+        <li>
+          <a href="https://www.aa.org/information-about-meetings"
+            >What to expect at an A.A. meeting</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="introductory-literature">
+      <h2>Introductory Literature</h2>
+      <ul>
+        <li><a href="https://www.aa.org/aa-you">Is A.A. for you?</a></li>
+        <li><a href="https://www.aa.org/newcomer-asks">A Newcomer Asks</a></li>
+        <li><a href="https://www.aa.org/aa-glance">A.A at a Glance</a></li>
+        <li>
+          <a href="https://www.aa.org/brief-guide-aa">A Brief Guide to A.A.</a>
+        </li>
+        <li>
+          <a
+            href="https://www.aa.org/frequently-asked-questions-about-aa-formerly-44-questions"
+            >Frequently Asked Questions about A.A.</a
+          >
+        </li>
+        <li>
+          <a href="https://www.aa.org/questions-and-answers-sponsorship"
+            >Questions and Answers on Sponsorship</a
+          >
+        </li>
+      </ul>
+      <a
+        href="https://www.aa.org/resources/literature?terms=&subject%5B%5D=1&format=36&items_per_page=24&sort_bef_combine=title_ASC"
+        >All AA literature</a
+      >
+    </section>
+  </div>
+</Layout>

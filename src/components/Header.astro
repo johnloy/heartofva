@@ -3,30 +3,186 @@ import MainNav from './MainNav.astro'
 import ThemeToggle from './ThemeToggle.astro'
 ---
 
-<header class="container">
+<header>
   <div class="masthead">
-    <a class="logo" href="/">AA Heart of Virginia</a>
-    <p>Charlottesville and Central Virginia</p>
+    <div class="page-width">
+      <a class="logo" href="/">
+        <svg
+          class="aa-symbol"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 384"
+        >
+          <path
+            d="M336.854 284.783C354.035 258.014 364 226.171 364 192c0-94.993-77.007-172-172-172S20 97.007 20 192c0 34.17 9.965 66.014 27.146 92.783L192 22l144.854 262.783Zm-.171.266H47.317C77.927 332.547 131.291 364 192 364c60.71 0 114.072-31.453 144.683-78.951ZM192 63.429 80.862 265.05h222.276L192 63.429ZM192 384C85.961 384 0 298.039 0 192S85.961 0 192 0s192 85.961 192 192-85.961 192-192 192Z"
+          ></path>
+        </svg>
+        <div class="district-name">
+          <abbr title="Alcoholics Anonymous">AA</abbr>
+          <span>Heart of Virginia</span>
+        </div>
+        <p class="district-regions">Charlottesville &amp; Central Virginia</p>
+      </a>
+      <MainNav />
+    </div>
   </div>
-  <MainNav />
-  <p class="vac-header">District (No. 9) of The Virginia Area Committee of A.A (V.A.C.)</p>
-  <p class="contact-header"><strong>Call or email 24/7</strong> (434) 293-6565 • <a href="mailto:aacharlottesville@gmail.com">aacharlottesville@gmail.com</a></p>
-  <ThemeToggle />
+
+  <!-- <hr style="width: 100%;" /> -->
+  <div class="page-width submasthead">
+    <!-- <p class="vac-header">
+      District (No. 9) of <a href="/aa-glossary#vac"
+        >The Virginia Area Committee of A.A (V.A.C.)</a
+      >
+    </p> -->
+    <p class="contact-header">
+      <strong><iconify-icon icon="mingcute:phone-fill"></iconify-icon>
+        Hotline 24/7</strong> <i>•</i> <span>(434) 293-6565</span>
+      <!-- <a href="mailto:aacharlottesville@gmail.com">aacharlottesville@gmail.com</a> -->
+    </p>
+  </div>
+  <!-- <ThemeToggle /> -->
 </header>
 
 <style>
-  header.container {
+  header {
+    /* background: rgba(255, 255, 255, 0.5); */
+    padding-block-end: 1.5rem;
+  }
+
+  header p {
+    color: black;
+    font-family: 'Merriweather Sans';
+  }
+
+  header :global(a) {
+    color: #dbfadc;
+  }
+
+  header :global(a:hover) {
+    color: white;
+  }
+
+  .page-width {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding-block-end: var(--spacing);
+    padding-block-start: calc(var(--spacing) * 2);
+    row-gap: 1rem;
   }
 
   .logo {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 2.125rem;
+    color: white;
+    gap: 1rem;
+    position: relative;
+    text-decoration: none;
   }
 
-  .vac-info {
-    flex-basis: 100%;
+  .district-regions {
+    position: absolute;
+    bottom: 0.1rem;
+    left: 5.35rem;
+  }
+
+  .logo:hover {
+    text-decoration: none;
+  }
+
+  .vac-header {
+    font-weight: 300;
+  }
+
+  .vac-header a {
+    font-weight: 500;
+    margin-left: 0.25em;
+  }
+
+
+  /* .masthead + :global(*) {
+    flex-basis: 60%;
+    display: flex;
+    justify-content: flex-end;
+  } */
+
+  .masthead {
+    background: #51acff;
+    border-bottom: 2px solide rgba(96,111,211,0.5);
+  }
+
+  .submasthead {
+    justify-content: center;
+    padding-block: 0;
+    translate: 0 -50%;
+  }
+
+  .district-name {
+    align-self: flex-start;
+  }
+
+  .masthead .page-width {
+    padding: 2.5rem 1rem;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .aa-symbol {
+    width: 4.5rem;
+  }
+
+  .logo abbr {
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  hr {
+    width: 100%;
+    /* border-top-color: rgb(180 219 255); */
+    border: 0;
+    margin-top: 0.75rem;
+  }
+
+  hr::after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .contact-header {
+    padding: 0.5em;
+    background: #ebf2fc;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-inline: 1.25rem;
+    display: flex;
+    column-gap: 1rem;
+    filter: drop-shadow(6px 10px 0 rgba(96,111,211,0.3));
+    border-top: 1px solid #258ceb;
+  }
+
+  .contact-header strong {
+    font-weight: 400;
+    color: #577d6f;
+    height: 1.25rem;
+  }
+
+  .contact-header iconify-icon {
+    color: black;
+    font-size: 1.25rem;
+    height: 1.25rem;
+    vertical-align: top;
+    margin-inline-end: 0.25em;
   }
 </style>

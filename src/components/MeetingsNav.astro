@@ -14,9 +14,9 @@ const { title, url } = Astro.props
   >
     <h1 id="meetings-nav-title" class="sr-only">Filter Meetings List</h1>
     <section>
-      <form id="meetings-nav-weekday-filter">
-        <fieldset>
-          <legend><h2>Weekday</h2></legend>
+      <form class="meetings-nav-weekday-filter">
+        <fieldset class="weekday">
+          <legend style="display: contents"><h2>Weekday:</h2></legend>
           <div class="radio-button-group">
             <label class="radio-button-group__option">
               <input type="radio" name="weekday" value="0" />
@@ -56,9 +56,19 @@ const { title, url } = Astro.props
 
 <script>
   import { meetings } from '../assets/resources/meetings.js'
-  import { groupBy } from 'lodash-es'
+  import { groupBy, kebabCase } from 'lodash-es'
   import { $, $$, userTime } from '../assets/common'
   import { html, render } from 'lit'
+
+  const WEEKDAY_NAMES = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ]
 
   const navEl = document.querySelector('.meetings-nav')
   const summaryEl = navEl.querySelector('summary')
@@ -110,7 +120,7 @@ const { title, url } = Astro.props
     ['Nelson & Buckingham', ['Arrington', 'Dilwyn', 'Lovingston']]
   ]
 
-  const renderRegionMeetings = (meetingsByLocation) => {
+  const renderRegionMeetings = (meetingsByLocation, weekday) => {
     const template = html`
       <h2 class="sr-only">Location</h2>
       ${regionsByCounty.map((region) => {
@@ -118,14 +128,25 @@ const { title, url } = Astro.props
           <section>
             <h3>${region[0]}</h3>
             <ul>
-              ${region[1].map(
-                (location) =>
-                  html`<li>
-                    ${location}&nbsp;<span
-                      >${meetingsByLocation[location] ? meetingsByLocation[location].length : 0}</span
-                    >
-                  </li>`
-              )}
+              ${region[1].map((location) => {
+                const meetingsCount = meetingsByLocation[location]
+                  ? meetingsByLocation[location].length
+                  : 0
+                return html`<li data-count=${meetingsCount}>
+                  ${meetingsCount
+                    ? html`<a
+                        class="location"
+                        href="/meetings?weekday=${weekday}&region=${kebabCase(
+                          location
+                        )}"
+                        >${location}</a
+                      >`
+                    : html`<span class="location">${location}</span>`}<span
+                    class="badge"
+                    >${meetingsCount}</span
+                  >
+                </li>`
+              })}
             </ul>
           </section>
         `
@@ -135,11 +156,11 @@ const { title, url } = Astro.props
   }
 
   const weekdayFilterInputs = $$(
-    '#meetings-nav-weekday-filter input[type="radio"]'
+    '.meetings-nav-weekday-filter input[type="radio"]'
   )
 
   const getSelectedDay = () =>
-    $('#meetings-nav-weekday-filter').elements.weekday.value
+    $('.meetings-nav-weekday-filter').elements.weekday.value
 
   const init = async () => {
     const today = userTime().day()
@@ -153,11 +174,18 @@ const { title, url } = Astro.props
     weekdayFilterInputs[today].checked = true
 
     console.log(meetingsByDay)
-    renderRegionMeetings(meetingsByDay[today])
-
-    $('#meetings-nav-weekday-filter').addEventListener('change', (e) =>
-      renderRegionMeetings(meetingsByDay[e.target.value])
+    renderRegionMeetings(
+      meetingsByDay[today],
+      WEEKDAY_NAMES[today].toLowerCase()
     )
+
+    $('.meetings-nav-weekday-filter').addEventListener('change', (e) => {
+      console.log(WEEKDAY_NAMES[e.target.value].toLowerCase())
+      renderRegionMeetings(
+        meetingsByDay[e.target.value],
+        WEEKDAY_NAMES[e.target.value].toLowerCase()
+      )
+    })
   }
 
   init()
@@ -167,10 +195,30 @@ const { title, url } = Astro.props
 </script>
 
 <style>
+  .meetings-nav summary {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+    padding-inline-start: 1rem !important;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    /* background-color: rgb(1 54 110 / 20%) !important; */
+    background-color: #2a9dee !important;
+  }
+
+  .meetings-nav summary:hover {
+    background-color: white !important;
+    z-index: 10000;
+    position: relative;
+    border-bottom-color: white !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .meetings-nav summary:hover a {
+    color: black;
+  }
+
   .meetings-nav-dropdown {
     background-color: var(--background-color);
-    border: 1px solid var(--form-element-border-color);
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     padding: 1.5rem;
     width: 100vw;
     z-index: 9999;
@@ -180,6 +228,8 @@ const { title, url } = Astro.props
     left: 1.5rem;
     translate: 0;
     max-width: calc(100vw - 2 * 1.5rem);
+    font-family: var(--font-family-sans);
+    box-shadow: 0 20px 100px 0 rgba(96, 111, 211, 0.5);
   }
 
   @media screen and (min-width: 50rem) {
@@ -276,20 +326,64 @@ const { title, url } = Astro.props
     display: none;
   }
 
+  [type='radio']:not(:checked) {
+    border: 1px solid #ccc;
+  }
+
+  [type='radio']:hover {
+    --background-color: #d9ebfd;
+  }
+
   [type='radio']:checked,
   [type='radio']:checked:active,
   [type='radio']:checked:focus {
-    --background-color: var(--mark-color);
+    --background-color: #10599d;
   }
 
-  :global([data-theme='dark']) [type='radio']:checked,
-  :global([data-theme='dark']) [type='radio']:checked:active,
-  :global([data-theme='dark']) [type='radio']:checked:focus {
-    --background-color: var(--primary-inverse);
+  [type='radio'] + abbr {
+    pointer-events: none;
   }
+
 
   [type='radio'] {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  fieldset.weekday {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid black;
+  }
+
+  .meetings-nav-weekday-filter h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 2;
+    margin: 0 1rem 0 0;
+    text-transform: uppercase;
+  }
+
+  #meetings-nav-location-filter :global(.location) {
+    margin-right: 0.5em !important;
+    font-weight: 300;
+    color: #999;
+  }
+
+  #meetings-nav-location-filter :global(a) {
+    color: #10599d !important;
+    font-weight: 700 !important;
+  }
+
+  #meetings-nav-location-filter :global(.badge) {
+    --_background: black;
+    font-size: 90%;
+    font-weight: 700;
+  }
+
+  #meetings-nav-location-filter :global([data-count="0"] .badge) {
+    --_background: #bbb !important;
   }
 </style>
