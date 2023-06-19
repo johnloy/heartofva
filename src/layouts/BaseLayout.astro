@@ -1,4 +1,5 @@
 ---
+import 'reasonable-colors'
 import '../assets/pico.css'
 import '../assets/common.scss'
 import '../components/MainNav.astro'
@@ -51,10 +52,6 @@ const { title } = Astro.props as Props
 </script>
 
 <style is:global is:inline>
-  body {
-    background: linear-gradient(180deg, #0970cf, #38a0ff 30%, transparent), #fff;
-    background-attachment: fixed;
-  }
   .theme-toggle {
     position: fixed;
     right: 2.5rem;

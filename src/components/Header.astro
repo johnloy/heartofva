@@ -46,6 +46,7 @@ import ThemeToggle from './ThemeToggle.astro'
   header {
     /* background: rgba(255, 255, 255, 0.5); */
     padding-block-end: 1.5rem;
+    overflow: hidden visible;
   }
 
   header p {
@@ -65,14 +66,11 @@ import ThemeToggle from './ThemeToggle.astro'
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-block-end: var(--spacing);
-    padding-block-start: calc(var(--spacing) * 2);
     row-gap: 1rem;
   }
 
   .logo {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     font-weight: 600;
     font-size: 2.125rem;
@@ -80,13 +78,40 @@ import ThemeToggle from './ThemeToggle.astro'
     gap: 1rem;
     position: relative;
     text-decoration: none;
+    transform-origin: left;
+    scale: 0.55;
+    white-space: nowrap;
+    transition: scale 0.2s ease-out;
+    margin-block: -1.35rem;
   }
 
-  .district-regions {
-    position: absolute;
-    bottom: 0.1rem;
-    left: 5.35rem;
+  @media (min-width: 26em) {
+    .logo {
+      scale: 0.7;
+      margin-block: -0.75rem;
+    }
   }
+
+  @media (min-width: 46em) {
+    .logo {
+      scale: 0.85;
+      margin-block: -0.45rem;
+    }
+  }
+
+  @media (min-width: 80em) {
+    .logo {
+      scale: 0.9;
+      margin-block: -0.1rem;
+    }
+  }
+
+  @media (min-width: 100em) {
+    .logo {
+      scale: 1;
+    }
+  }
+
 
   .logo:hover {
     text-decoration: none;
@@ -113,6 +138,41 @@ import ThemeToggle from './ThemeToggle.astro'
     border-bottom: 2px solide rgba(96,111,211,0.5);
   }
 
+  .masthead .page-width {
+    padding-block: 1.125rem;
+    /* padding-block-start: 1rem;
+    padding-block-end: 0.75rem; */
+
+    /* padding-block-start: calc(var(--spacing) * 2);
+    padding-block-end: var(--spacing); */
+
+    /* padding-block: 2.5rem; */
+  }
+  @media (min-width: 26em) {
+    .masthead .page-width {
+      padding-block: 1.25rem;
+    }
+  }
+  @media (min-width: 46em) {
+    .masthead .page-width {
+      padding-block: 1.5rem;
+    }
+  }
+  @media (min-width: 60em) {
+    .masthead .page-width {
+      padding-block: 1.75rem;
+    }
+  }
+  @media (min-width: 80em) {
+    .masthead .page-width {
+      padding-block: 2.5rem;
+    }
+  }
+  @media (min-width: 100em) {
+    .masthead .page-width {
+      padding-block: 2.5rem;
+    }
+  }
   .submasthead {
     justify-content: center;
     padding-block: 0;
@@ -121,11 +181,20 @@ import ThemeToggle from './ThemeToggle.astro'
 
   .district-name {
     align-self: flex-start;
+    position: relative;
+    top: -0.3rem;
+    font-size: 2.5rem;
   }
 
-  .masthead .page-width {
-    padding: 2.5rem 1rem;
+
+  .district-regions {
+    position: absolute;
+    bottom: 0;
+    left: 5.4rem;
+    font-size: 1.2rem;
+    color: var(--color-blue-5);
   }
+
 
   p {
     margin: 0;
@@ -164,7 +233,7 @@ import ThemeToggle from './ThemeToggle.astro'
     background: #ebf2fc;
     border-radius: 2rem;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     padding-inline: 1.25rem;
     display: flex;
     column-gap: 1rem;

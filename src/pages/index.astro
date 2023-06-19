@@ -7,17 +7,19 @@ export const title = 'Home'
 
 <Layout title="AA Heart of Virginia, District No. 9">
   <div class="layout">
-    <aside class="quote">
+    <aside id="preamble">
       <blockquote>
-        <span class="left-quote">“</span>
-        <p>
-          Alcoholics Anonymous is a fellowship of people who share their
-          experience, strength and hope with each other that they may solve
-          their common problem and help others to recover from alcoholism.
-        </p>
-        <p>
-          The only requirement for membership is a desire to stop drinking.
-        </p><span class="right-quote">”</span>
+        <div class="quote">
+          <span class="left-quote">“</span>
+          <p>
+            Alcoholics Anonymous is a fellowship of people who share their
+            experience, strength and hope with each other that they may solve
+            their common problem and help others to recover from alcoholism.
+          </p>
+          <p>
+            The only requirement for membership is a desire to stop drinking.
+          </p><span class="right-quote">”</span>
+        </div>
         <footer>
           —<cite><a href="https://www.aa.org/aa-preamble">AA Preamble</a></cite>
         </footer>
@@ -63,7 +65,7 @@ export const title = 'Home'
         <li>Green County</li>
         <li>Madison County</li>
         <li>Orange County</li>
-        <li>Luisa County</li>
+        <li>Louisa County</li>
         <li>Nelson County</li>
         <li>Buckingham County</li>
       </ul>
@@ -120,10 +122,20 @@ export const title = 'Home'
       <section>
         <h3 id="general-resources">General</h3>
         <ul>
-          <li>AA literature</li>
+          <li>
+            <a href="https://www.aa.org/resources/literature">AA literature</a>
+          </li>
           <li><a href="./aa-glossary">AA glossary</a></li>
-          <li>AA Grapevine and La Viña</li>
-          <li>Virginia AA member services</li>
+          <li>
+            <a href="https://www.aa.org/aa-grapevine-la-vina"
+              >AA Grapevine and La Viña</a
+            >
+          </li>
+          <li>
+            <a href="https://aavirginia.org/member-services/"
+              >Virginia AA member services</a
+            >
+          </li>
           <li>
             <a href="./archives">Archives of AA Heart of Virginia District</a>
           </li>
@@ -140,8 +152,16 @@ export const title = 'Home'
       <section id="related-organizations">
         <h3>Related Organizations</h3>
         <ul>
-          <li>Alcoholics Anonymous World Services (aka G.S.O.)</li>
-          <li>Virginia Area Committee of A.A. (V.A.C.)</li>
+          <li>
+            <a href="https://www.aa.org/"
+              >Alcoholics Anonymous World Services (aka G.S.O.)</a
+            >
+          </li>
+          <li>
+            <a href="https://aavirginia.org/"
+              >Virginia Area Committee of A.A. (V.A.C.)</a
+            >
+          </li>
           <li>
             <a
               href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
@@ -171,7 +191,7 @@ export const title = 'Home'
     backdrop-filter: blur(10px);
     border-radius: 8px;
     margin: 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     /* border: 1px solid white; */
     box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5);
   }
@@ -181,7 +201,6 @@ export const title = 'Home'
   }
 
   .layout > :global(section h2) {
-    font-size: 1.5rem;
     font-weight: 500;
   }
 
@@ -246,27 +265,31 @@ export const title = 'Home'
 		background: red;
 	} */
 
-  .quote {
+  #preamble {
     justify-self: center;
     grid-area: quote;
     backdrop-filter: blur(8px);
-    padding-inline: 2rem;
+    padding: 2rem 6rem;
     position: relative;
     border-radius: 8px;
 
     /* border: 1px solid rgba(255, 255, 255, 0.3); */
 
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     /* border: 1px solid white; */
     box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5),
       0 0 100px 0 rgba(96, 111, 211, 0.5);
     /* border-left: 0; */
   }
 
+  .quote {
+    position: relative;
+  }
+
   .left-quote,
   .right-quote {
     position: absolute;
-    font-size: 1200%;
+    font-size: 800%;
     /* font-family: "Merriweather Sans", sans-serif; */
     font-weight: 700;
     color: white;
@@ -276,19 +299,47 @@ export const title = 'Home'
   }
 
   .left-quote {
-    left: -0.45em;
-    top: 0.15em;
+    left: -0.72em;
+    top: -0.1em;
   }
 
   .right-quote {
-    bottom: -0.4em;
-    right: -0.45em;
+    bottom: -0.7em;
+    right: -0.72em;
   }
 
-  .quote blockquote {
+  #preamble blockquote {
     border-left: 0;
     width: 100%;
-    max-width: 50rem;
+    max-width: 47.25rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 68.75em) {
+    #preamble {
+      padding: 2rem 3rem;
+    }
+
+    .left-quote,
+    .right-quote {
+      font-size: 1000%;
+      font-weight: 700;
+    }
+
+    .left-quote {
+      left: -0.75em;
+      top: -0.1em;
+    }
+
+    .right-quote {
+      bottom: -0.65em;
+      right: -0.75em;
+    }
+
+    #preamble blockquote {
+      padding-inline: 0;
+    }
   }
 
   #member-resources {
@@ -327,7 +378,7 @@ export const title = 'Home'
     font-weight: 300;
     color: black;
     padding: 1rem 1.5rem;
-    box-shadow: 8px 8px 0 rgba(96,111,211,0.2);
+    box-shadow: 8px 8px 0 rgba(96, 111, 211, 0.2);
   }
 
   #daily-reflection a {
@@ -378,10 +429,10 @@ export const title = 'Home'
     translate: 0 0.3rem;
   }
 
-  .quote p {
-    font-weight: 300;
+  #preamble p {
+    font-weight: 500;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: var(--font-size-base);
   }
 
   .regions-list li {

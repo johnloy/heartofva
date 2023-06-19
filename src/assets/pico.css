@@ -1,5 +1,44 @@
 @charset "UTF-8";
 
+/* Fluid font size variables, for browsers that support clamp */
+@supports (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    --font-size-xs: clamp(0.64rem, 0.1vw + 0.62rem, 0.74rem);
+		--font-size-sm: clamp(0.8rem, 0.13vw + 0.78rem, 0.93rem);
+		--font-size-base: clamp(1rem, 0.16vw + 0.97rem, 1.16rem);
+		--font-size-md: clamp(1.25rem, 0.2vw + 1.21rem, 1.45rem);
+		--font-size-lg: clamp(1.56rem, 0.24vw + 1.51rem, 1.81rem);
+		--font-size-xl: clamp(1.95rem, 0.31vw + 1.89rem, 2.26rem);
+		--font-size-xxl: clamp(2.44rem, 0.38vw + 2.37rem, 2.82rem);
+		--font-size-xxxl: clamp(3.05rem, 0.48vw + 2.96rem, 3.53rem);
+  }
+}
+/* Fallback variables for browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    --font-size-xs: 0.64rem;
+		--font-size-sm: 0.8rem;
+		--font-size-base: 1rem;
+		--font-size-md: 1.25rem;
+		--font-size-lg: 1.56rem;
+		--font-size-xl: 1.95rem;
+		--font-size-xxl: 2.44rem;
+		--font-size-xxxl: 3.05rem;
+  }
+  @media screen and (min-width: 1920px) {
+    :root {
+      --font-size-xs: 0.74rem;
+			--font-size-sm: 0.93rem;
+			--font-size-base: 1.16rem;
+			--font-size-md: 1.45rem;
+			--font-size-lg: 1.81rem;
+			--font-size-xl: 2.26rem;
+			--font-size-xxl: 2.82rem;
+			--font-size-xxxl: 3.53rem;
+    }
+  }
+}
+
 /* ANCHOR (var) Base typography and spacing */
 :root {
   /* --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
@@ -8,13 +47,20 @@
   --font-family: 'Merriweather', serif;
   --font-family-serif: 'Merriweather', serif;
   --font-family-sans: 'Merriweather Sans', serif;
+  --font-family-mono: "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace",
+    "Noto Mono", "Oxygen Mono", "Liberation Mono", monospace,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   --line-height: 1.5;
   --font-weight: 400;
-  --font-size: 16px;
+  --font-size: var(--font-size-base);
+
   --border-radius: 0.25rem;
   --border-width: 1px;
   --outline-width: 3px;
+
   --spacing: 1rem;
+
   --typography-spacing-vertical: 1.5rem;
   --block-spacing-vertical: calc(var(--spacing) * 2);
   --block-spacing-horizontal: var(--spacing);
@@ -26,6 +72,7 @@
   --nav-element-spacing-horizontal: 0.5rem;
   --nav-link-spacing-vertical: 0.5rem;
   --nav-link-spacing-horizontal: 0.5rem;
+
   --form-label-font-weight: var(--font-weight);
   --transition: 0.2s ease-in-out;
   --modal-overlay-backdrop-filter: blur(0.25rem);
@@ -33,26 +80,26 @@
 
 
 /* ANCHOR (var) Font sizes for media queries */
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   :root {
-    /* --font-size: 17px; */
+    --font-size: 17px;
   }
 }
 @media (min-width: 768px) {
   :root {
-    /* --font-size: 18px; */
+    --font-size: 18px;
   }
 }
 @media (min-width: 992px) {
   :root {
-    /* --font-size: 19px; */
+    --font-size: 19px;
   }
 }
 @media (min-width: 1200px) {
   :root {
-    /* --font-size: 20px; */
+    --font-size: 20px;
   }
-}
+} */
 
 
 /* ANCHOR (var) Block spacing for media queries */
@@ -152,29 +199,24 @@ h6 {
 }
 
 h1 {
-  --font-size: 2.5rem;
+  --font-size: var(--font-size-xl);
   /* --typography-spacing-vertical: 3rem; */
 }
 
 h2 {
-  --font-size: 1.75rem;
+  --font-size: var(--font-size-lg);
   --font-weight: 300;
   /* --typography-spacing-vertical: 2.625rem; */
 }
 
 h3 {
-  --font-size: 1.25rem;
+  --font-size: var(--font-size-md);
   /* --typography-spacing-vertical: 2.25rem; */
 }
 
 h4 {
-  --font-size: 1.25rem;
+  --font-size: var(--font-size-base);
   /* --typography-spacing-vertical: 1.874rem; */
-}
-
-h5 {
-  --font-size: 1.125rem;
-  /* --typography-spacing-vertical: 1.6875rem; */
 }
 
 
@@ -566,6 +608,7 @@ progress,
   vertical-align: inherit;
 }
 
+/* ANCHOR (base) :root !!! */
 :where(:root) {
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
@@ -621,6 +664,11 @@ body > footer {
 } */
 
 
+body {
+  background: linear-gradient(180deg, var(--color-blue-3), #38a0ff 30%, transparent), white;
+  background-attachment: fixed;
+}
+
 /* ANCHOR (com) .page-width, including media queries */
 /**
 * Container
@@ -628,17 +676,43 @@ body > footer {
 .page-width,
 .page-width-fluid {
   width: 100%;
+  max-width: 90em;
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--spacing);
-  padding-left: var(--spacing);
+  /* padding-right: var(--spacing);
+  padding-left: var(--spacing); */
+  padding-inline: 0.75rem;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 26rem) {
+  .page-width {
+    padding-inline: 1rem;
+  }
+}
+
+@media (min-width: 46em) {
+  .page-width {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 60em) {
+  .page-width {
+    padding-inline: 1.75rem;
+  }
+}
+
+@media (min-width: 80em) {
+  .page-width {
+    padding-inline: 2rem;
+  }
+}
+
+/* @media (min-width: 576px) {
   .page-width {
     max-width: 510px;
-    /* padding-right: 0;
-    padding-left: 0; */
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 @media (min-width: 768px) {
@@ -655,7 +729,7 @@ body > footer {
   .page-width {
     max-width: 1280px;
   }
-}
+} */
 
 /**
  * Section
@@ -2720,6 +2794,33 @@ a[aria-busy=true] {
   clip: rect(0, 0, 0, 0);
   position: absolute;
 }
+
+.sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+	clip: auto !important;
+	-webkit-clip-path: none !important;
+  clip-path: none !important;
+	height: auto !important;
+	margin: auto !important;
+	overflow: visible !important;
+	width: auto !important;
+	white-space: normal !important;
+}
+
 
 a,
 area,
