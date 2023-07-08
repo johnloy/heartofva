@@ -1,0 +1,45 @@
+
+/* ==========================================================================
+/* SECTION Typography base
+ * ========================================================================== */
+
+.main-content :is(h1, h2, h3, h4, h5, h6) {
+  margin-block-end: 1.5rem;
+}
+
+.main-content h1 {
+  font-size: var(--font-size-xl);
+}
+
+.main-content h2 {
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+}
+
+.main-content h3 {
+  font-size: var(--font-size-md);
+}
+
+.main-content h4 {
+  font-size: var(--font-size-base);
+}
+
+:where(
+	.main-content
+	:is(
+		address,
+		blockquote,
+		dl,
+		figure,
+		form,
+		ol,
+		p,
+		pre,
+		table,
+		ul
+	)
+) {
+  margin-block: 1.5rem;
+}
+
+/* !SECTION Typography */

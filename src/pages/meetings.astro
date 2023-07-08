@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
+import '../assets/page-layout.css'
+import '../assets/meetings-layout.css'
 
 export const title = 'Meetings'
 ---
 
 <Layout title={title}>
-  <div class="content-bg">
+  <div class="main-content surface-primary">
     <div
       id="tsml-ui"
       data-src="https://heartofvadev.wpengine.com/wp-admin/admin-ajax.php?action=meetings"
@@ -20,6 +22,7 @@ export const title = 'Meetings'
   div#tsml-ui {
     margin: 0;
     width: 100% !important;
+    grid-column-end: -1;
   }
 
   :global(div.tsml-ui.tsml-ui) {

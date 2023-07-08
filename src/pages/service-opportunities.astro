@@ -1,16 +1,48 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
 
-export const title = 'Services Opportunities'
+export const title = 'Service Opportunities'
 ---
 
 <Layout title={title}>
-  <div class="content-bg">
+  <div class="main-content surface-primary">
     <h1>{title}</h1>
-
+    <aside>
+      <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li>
+            <a href="#member-to-member">Member to Member</a>
+            <ul>
+              <li><a href="#fellowship">Fellowship</a></li>
+              <li><a href="#sponsorship">Sponsorship</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#home-group">Home Group</a>
+            <ul>
+              <li><a href="#group-treasurer">Group Treasurer</a></li>
+              <li><a href="#intergroup-rep">Intergroup Representative</a></li>
+              <li><a href="#gsr">General Service Representative</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#local">Intergroup and District Service Committee</a>
+            <ul>
+              <li><a href="#answer-phones">Answer the Phone Hotline</a></li>
+              <li><a href="#12-step-call">Take a 12th Step Call</a></li>
+              <li>
+                <a href="#intergroup-committees">Join an Intergroup Committee</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
     <section id="member-to-member">
       <h2>Member to Member</h2>
-      <h3>Fellowship</h3>
+      <h3 id="fellowship">Fellowship</h3>
       <p>
         Keep in mind that your presence at meetings and events is a form of
         service to other alcoholics! Through sharing your experience, strength,
@@ -24,7 +56,7 @@ export const title = 'Services Opportunities'
         personally to offer help and fellowship to newcomers, is also a crucial
         form of service.
       </p>
-      <h3>Sponsorship</h3>
+      <h3 id="sponsorship">Sponsorship</h3>
       <p>
         The AA General Service Conference-approved pamplet <a
           href="https://www.aa.org/questions-and-answers-sponsorship"
@@ -54,20 +86,128 @@ export const title = 'Services Opportunities'
 
     <section id="home-group">
       <h2>Home Group</h2>
-      <p>In AA, a home group is</p>
+      <p>
+        A home group is an AA group in whose "group conscience" you wish to
+        participate, by regularly attending meetings, being involved in group
+        decisions, and being of service to attendees. Some of the ways to serve
+        a home group include:
+      </p>
 
       <ul>
-        <li>Greet</li>
-        <li>Setup and clean up</li>
+        <li>Greet members as they arrive</li>
+        <li>Set up and clean up chairs, literature, etc.</li>
         <li>Make coffee</li>
+        <li>Chair meetings</li>
+        <li>
+          Become a group officer, or "trusted servant"
+          <ul>
+            <li>Chairperson</li>
+            <li>Treasurer</li>
+            <li>Secretary</li>
+            <li>Grapevine and La Vina Representative</li>
+            <li>Literature Representative</li>
+            <li><a href="#intergroup-rep">Intergroup Representative</a></li>
+            <li><a href="#gsr">General Service Representative (GSR)</a></li>
+          </ul>
+        </li>
       </ul>
 
       <section id="group-treasurer">
         <h3>Group Treasurer</h3>
+        <aside class="resources">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a href="https://www.aa.org/aa-group-treasurer"
+                >The AA Group Treasurer</a
+              > (literature)
+            </li>
+            <li>
+              <a href="https://www.aa.org/aa-contributions-self-support"
+                >Contributions and Self Support</a
+              > (aa.org page)
+            </li>
+            <li>
+              <a
+                href="https://www.aa.org/self-support-where-money-and-spirituality-mix"
+                >Self-Support: Where Money and Spirituality Mix</a
+              > (literature)
+            </li>
+            <li>
+              <a
+                href="https://www.aa.org/seventh-tradition-fact-sheet-your-seventh-tradition-contributions"
+                >Seventh Tradition Fact Sheet - Your Seventh Tradition
+                Contributions</a
+              > (literature)
+            </li>
+          </ul>
+        </aside>
+        <p>
+          A.A.’s Seventh Tradition states: “Every A.A. group ought to be fully
+          self-supporting, declining outside contributions.” Members provide
+          financial support through voluntary donations at meetings, which can
+          then be used to meet group expenses, such as meeting space, coffee,
+          and literature. When a surplus exists, after covering these expenses,
+          groups regularly also donate to area and global AA service entities to
+          support their work.
+        </p>
+
+        <ul>
+          <li>Heart of Virginia Intergroup</li>
+          <li>Heart of Virginia District Service Committee</li>
+          <li>Virginia Area Committee</li>
+          <li>AA General Service Office (G.S.O)</li>
+        </ul>
+
+        <p>
+          Mailing addresses for these entities can be found on our Contact page.
+        </p>
+
+        <p>
+          It is the responsibility of a group's Treasurer to direct group funds
+        </p>
+
+        <p>
+          When mailing in group contributions, please include your District
+          Number, Group Number and Group Name in the memo section of the check.
+          Contributions to GSO may also be made online at www.aa.org For more
+          information on how your group may choose to split their 7th Tradition
+          contributions, pdfs of pamphlets available from AAWS are attached
+          below. All four service entities are self-supporting and grateful for
+          your contributions.
+        </p>
+
+        <p>
+          A group's treasurer is primarily responsible for ensuring donations
+          are properly directed to these needs, but also to AA's other
+        </p>
       </section>
 
       <section id="intergroup-rep">
         <h3>Intergroup Representative</h3>
+        <aside class="resources">
+          <h4>Resources</h4>
+          <ul>
+            <li>
+              <a
+                href="https://jeffersonfob.files.wordpress.com/2021/06/role-of-intergroup-representative.pdf"
+                >Role of the Intergroup Representative</a
+              > (PDF)
+            </li>
+            <li>
+              <a
+                href="https://www.aa.org/aa-guidelines-central-or-intergroup-offices"
+                >AA Guidelines on Central or Intergroup Offices</a
+              > (literature)
+            </li>
+            <li>
+              <a
+                href="https://jeffersonfob.files.wordpress.com/2021/06/jdi-bylaws-v4.pdf"
+                >Heart of Virginia Intergroup Bylaws</a
+              > (PDF)
+            </li>
+          </ul>
+        </aside>
         <p>
           This role is an elected position, to be the voice of an AA Group
           Conscience by attending monthly Intergroup meetings and participating
@@ -75,17 +215,16 @@ export const title = 'Services Opportunities'
           Heart of Virginia District Intergroup.
         </p>
         <p>
-          to the
-          extent possible, obtain advance guidance from their home group about
-          matters to be considered at JDI meetings; report back to their home
-          group about the meetings and upcoming JDI events and activities; and,
-          to the extent possible, participates in Intergroup committees and
+          to the extent possible, obtain advance guidance from their home group
+          about matters to be considered at JDI meetings; report back to their
+          home group about the meetings and upcoming JDI events and activities;
+          and, to the extent possible, participates in Intergroup committees and
           activities. The Representative’s roles and responsibilities are
           enumerated in paragraph D, Section VI, of Intergroup’s Bylaws.
         </p>
       </section>
 
-      <section id="gsr-rep">
+      <section id="gsr">
         <h3>General Service Representative (G.S.R.)</h3>
       </section>
     </section>
@@ -94,7 +233,18 @@ export const title = 'Services Opportunities'
       <h2>Local: Intergroup and District Service Committee</h2>
 
       <section id="answer-phones">
-        <h3>Volunteer to answer the phone in the Intergroup central office</h3>
+        <h3>Answer the Phone Hotline</h3>
+
+        <aside class="resources">
+          <h4>How to Volunteer</h4>
+          <p>
+            Email <a href="mailto:aacharlottesville@gmail.com"
+              >aacharlottesville@gmail.com</a
+            > with your phone, email address, and times you’re available to answer
+            phones in the office. The Office Manager will coordinate the dates with
+            you, so you can plan your time.
+          </p>
+        </aside>
 
         <p>
           Heart of Virginia District Intergroup is responsible for a local AA
@@ -117,36 +267,152 @@ export const title = 'Services Opportunities'
           or 3 months, depending on the number of volunteers in the weekend
           pool.
         </p>
-
-        <p>
-          If you want to volunteer, email aacharlottesville@gmail.com with your
-          phone, email address, and times you’re available to answer phones in
-          the office. The Office Manager will coordinate the dates with you, so
-          you can plan your time.
-        </p>
       </section>
 
       <section id="12-step-call">
-        <h3>
-          Volunteer to take a 12 Step call forwarded from the phone hotline
-        </h3>
+        <h3>Take a 12th Step Call</h3>
+
+        <aside class="resources">
+          <h4>How to Volunteer</h4>
+          <p>
+            If you want to be added to the 12th Step Call List, email <a
+              href="mailto:aacharlottesville@gmail.com"
+              >aacharlottesville@gmail.com</a
+            > with your phone, email address, and times you are NOT available for
+            calls. Also be sure to note whether or not you can give rides to meetings.
+          </p>
+        </aside>
+
+        <p>
+          If you can’t commit to a scheduled time for answering the phone
+          hotline, consider having your name and number added to the 12 Step
+          Call List (one each for men, women, or Spanish-speaking) to talk with
+          a suffering alcoholic or provide them with a ride to a meeting.
+        </p>
+
+        <p>
+          Either the answering service or a phone volunteer will screen incoming
+          calls, and if a 12 Step conversation is requested, they will contact
+          you. You can control the hours you’re available for calls, and whether
+          you want to give rides or not.
+        </p>
       </section>
 
       <section id="intergroup-committees">
-        <h3>Get involved in an Intergroup committee</h3>
+        <h3>Join an Intergroup committee</h3>
         <ul>
-          <li>Activities</li>
-          <li>Archives</li>
-          <li>Public Information</li>
-          <li>Correctional Facilities</li>
-          <li>Grapevine / La Viña</li>
-          <li>Hospitals and Institutions</li>
+          <li>
+            <strong>Activities</strong>
+            <p>
+              Needs help planning and arranging picnics, dances, celebrations
+              and other events. We are always happy to see more volunteers!
+            </p>
+          </li>
+          <li>
+            <strong>Archives</strong>
+            <p>
+              Needs help collecting and documenting records, documents,
+              articles, memorabilia, newsletters, and group histories for our
+              local and Virginia Area Archives.
+            </p>
+          </li>
+          <li>
+            <strong>Public Information</strong>
+            <p>
+              Needs help providing information about AA: what it is and isn’t to
+              professionals who are in contact with alcoholics and to the
+              general community. Volunteers are always needed with health fairs,
+              talks and much more.
+            </p>
+          </li>
+          <li>
+            <strong>Correctional Facilities</strong>
+            <p>
+              Needs help working with local corrections institutions to carry
+              the message of AA and bring meetings into local jails and prisons.
+              We have four facilities within our district, including Albermarle
+              County Regional Jail, Dillwyn Correctional Institution, Fluvanna
+              Women’s and Blue Ridge Juvenile Detention Center. In particular we
+              have a strong need for volunteers in the Juvenile facility. Read
+              the attached flyer <a
+                href="https://jeffersonfob.files.wordpress.com/2023/01/how-i-can-help-webpage.pdf"
+                >How Can I help the Alcoholic in Jail or Prison</a
+              > for more details. New volunteers must attend an orientation at the
+              prison.
+            </p>
+          </li>
+          <li id="intergroup-grapevine">
+            <strong>Grapevine / La Viña</strong>
+            <p>
+              Become a Grapevine Representative for your group. You will inform
+              the general A.A. community of the amazing availability and
+              benefits of the Meeting in Media! Sign up at
+              <a href="http://www.aagrapevine.org/get-involved"
+                >http://www.aagrapevine.org/get-involved</a
+              >. When asked for specific regional information. please supply
+              District 9, Area 71
+            </p>
+          </li>
+          <li id="intergroup-hospitals-and-institutions">
+            <strong>Hospitals and Institutions (aka H&I)</strong>
+            <p>
+              Needs help coordinating delivery of information and meetings to
+              area hospitals and treatment centers. Volunteers are needed to
+              help take meetings into 5 East at UVa Hospital and the Wellness
+              Center. Help also is needed in carrying the message to local
+              nursing homes and hospice to those with special needs.
+            </p>
+          </li>
         </ul>
       </section>
     </section>
-
-    <secton id="regional">
-      <h2>Regional: Virginia Area Committee</h2>
-    </secton>
   </div>
 </Layout>
+
+<style>
+  .resources {
+    /* border: 1px solid white; */
+    background-color: var(--color-gray-5);
+    color: var(--color-gray-2);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-family: var(--font-family-sans);
+    font-weight: 300;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem 1.125rem;
+  }
+
+  .resources p {
+    color: inherit;
+    margin: 0;
+  }
+
+  .resources h4 {
+    font-size: var(--font-size-base);
+    color: inherit;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .resources ul {
+    margin: 0;
+    color: inherit;
+  }
+
+  .resources li {
+    padding: 0;
+    list-style: disc;
+    display: list-item;
+  }
+
+  .resources a {
+    color: var(--color-green-1);
+    display: inline;
+  }
+
+  .resources * {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+</style>

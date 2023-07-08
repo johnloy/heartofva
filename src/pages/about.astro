@@ -1,20 +1,41 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
+import '../assets/page-layout.css'
 
 export const title = 'About'
 ---
 
 <Layout title={title}>
-  <div class="content-bg">
+  <div class="main-content surface-primary">
     <h1>{title}</h1>
+
+    <aside>
+      <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li>
+            <a href="#about-aa">About Alcoholics Anonymous</a>
+          </li>
+          <li>
+            <a href="#about-hova">About Heart of Virginia</a>
+          </li>
+          <li>
+            <a href="#intergroup-services">Heart of Virginia Intergroup Services</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
     <section id="intro">
-      This website is maintained by the Heart of Virginia (District No. 9)
-      Intergroup, a part of The Virginia Area Committee of A.A. (V.A.C.), and is
-      provided as a clearing house of information related to all AA groups and
-      activities in the district (see: Service Areas of AA Heart of Virginia).
+      <p>
+        This website is maintained by the Heart of Virginia (District No. 9)
+        Intergroup, a part of The Virginia Area Committee of A.A. (V.A.C.), and
+        is provided as a clearing house of information related to all AA groups
+        and activities in the district (see: Service Areas of AA Heart of
+        Virginia).
+      </p>
     </section>
-    <section>
-      <h2>About AA</h2>
+    <section id="about-aa">
+      <h2>About Alcoholics Anonymous</h2>
       <p>
         For information about Alcoholics Anonymous in general, please refer to
         the <a href="https://www.aa.org/">Alcoholics Anonymous World Services</a
@@ -22,14 +43,16 @@ export const title = 'About'
       </p>
     </section>
 
-    <section>
-      <h2>About AA Heart of Virginia</h2>
+    <section id="about-hova">
+      <h2>About Heart of Virginia</h2>
 
       <aside>
         <p>
           Websites and contact information for other areas of Virginia can be
-          found on the [Virginia Alchoholics Anonymous
-          website](https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/).
+          found on the <a
+            href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
+            >Virginia Alchoholics Anonymous website</a
+          >.
         </p>
       </aside>
 
@@ -51,124 +74,100 @@ export const title = 'About'
         >). Listed below are some of the services provided by Intergroup.
       </p>
 
-      <section>
-        <h3>Services Provided by AA Heart of Virginia Intergroup</h3>
+      <section id="intergroup-services">
+        <h2>Heart of Virginia Intergroup Services</h2>
 
-        <details>
-          <summary>Maintain aaheartofva.org</summary>
-          <p>
-            Intergroup maintains this website to provide information over the
-            internet about open and closed meeting (days, times and locations)
-            special events, volunteer opportunities, and other information about
-            JDI, JDSC, and various AA support activities and functions. To post
-            meeting updates and notices on the web site, send the information to <a
-              href="mailto:AACharlottesville@gmail.com"
-              >AACharlottesville@gmail.com</a
-            >.
-          </p>
-        </details>
+        <h3>Maintain aaheartofva.org</h3>
+        <p>
+          Intergroup maintains this website to provide information over the
+          internet about open and closed meeting (days, times and locations)
+          special events, volunteer opportunities, and other information about
+          JDI, JDSC, and various AA support activities and functions. To post
+          meeting updates and notices on the web site, send the information to <a
+            href="mailto:AACharlottesville@gmail.com"
+            >AACharlottesville@gmail.com</a
+          >.
+        </p>
 
-        <details>
-          <summary>Run the Central Office</summary>
-          <p>
-            With assistance from JDSC, Intergroup rents an office (Suite 3-A,
-            1807 Emmet Street) for a variety of uses including
-            telecommunications linkage, access to purchase literature and chips,
-            answering calls, maintaining files and records, storing and making
-            available supplies for events. The office is used as a meeting room
-            for committees, open and closed meetings, sponsor/sponsee sessions,
-            and other special meetings.
-          </p>
-        </details>
+        <h3>Run the Central Office</h4>
+        <p>
+          With assistance from JDSC, Intergroup rents an office (Suite 3-A, 1807
+          Emmet Street) for a variety of uses including telecommunications
+          linkage, access to purchase literature and chips, answering calls,
+          maintaining files and records, storing and making available supplies
+          for events. The office is used as a meeting room for committees, open
+          and closed meetings, sponsor/sponsee sessions, and other special
+          meetings.
+        </p>
 
-        <details>
-          <summary>Answer Calls</summary>
-          <p>
-            In order to respond to telephone inquiries from persons seeking
-            information about local AA meetings and activities, Intergroup
-            maintains a list of AA volunteers to answer incoming calls. An
-            answering service routes these calls to AA volunteers when no one is
-            available to answer the phone at the Intergroup office. AA
-            volunteers are always needed for this important service of
-            responding to calls. For more information, see the “Service” tab at
-            the web site.
-          </p>
-        </details>
+        <h3>Answer Calls</h4>
+        <p>
+          In order to respond to telephone inquiries from persons seeking
+          information about local AA meetings and activities, Intergroup
+          maintains a list of AA volunteers to answer incoming calls. An
+          answering service routes these calls to AA volunteers when no one is
+          available to answer the phone at the Intergroup office. AA volunteers
+          are always needed for this important service of responding to calls.
+          For more information, see the “Service” tab at the web site.
+        </p>
 
-        <details>
-          <summary>Publish Up-to-Date Meeting Information</summary>
-          <p>
-            In addition to web site information, every second month Intergroup
-            prints a list of home group meetings (days, times and locations) for
-            distribution at meetings. To submit updates to meeting schedules
-            send the information to AACharlottesville@gmail.com.
-          </p>
-        </details>
+        <h3>Publish Up-to-Date Meeting Information</h4>
+        <p>
+          In addition to web site information, every second month Intergroup
+          prints a list of home group meetings (days, times and locations) for
+          distribution at meetings. To submit updates to meeting schedules send
+          the information to AACharlottesville@gmail.com.
+        </p>
 
-        <details>
-          <summary>Coordinate Special Events</summary>
-          <p>
-            The Intergroup, on its own or in cooperation with JDSC or home
-            groups, sponsors the Christmas and other marathons, the Founder’s
-            Day picnic, conferences, special events and fellowship activities.
-          </p>
-        </details>
+        <h3>Coordinate Special Events</h4>
+        <p>
+          The Intergroup, on its own or in cooperation with JDSC or home groups,
+          sponsors the Christmas and other marathons, the Founder’s Day picnic,
+          conferences, special events and fellowship activities.
+        </p>
 
-        <details>
-          <summary>Supply Literature and Chips to Home Groups</summary>
-          <p>
-            Intergroup maintains at the central office an inventory of AA books
-            and pamphlets for home groups and members to purchase. Also,
-            available is a supply of plastic chips and bronze medallions to mark
-            individual’s time in sobriety. This Intergroup service makes it
-            easier, quicker and less costly for home groups and individuals to
-            obtain AA-authorized books. See the “Literature and Chips” tab at
-            the web site.
-          </p>
-        </details>
+        <h3>Supply Literature and Chips to Home Groups</h4>
+        <p>
+          Intergroup maintains at the central office an inventory of AA books
+          and pamphlets for home groups and members to purchase. Also, available
+          is a supply of plastic chips and bronze medallions to mark
+          individual’s time in sobriety. This Intergroup service makes it
+          easier, quicker and less costly for home groups and individuals to
+          obtain AA-authorized books. See the “Literature and Chips” tab at the
+          web site.
+        </p>
 
-        <details>
-          <summary>Serve as a Forum for Communication Among Home Groups</summary
-          >
-          <p>
-            Both Intergroup and JDSC are forums for communication and
-            coordination among home groups. Where there are activities,
-            projects, issues and questions that cut across many home groups, JDI
-            serves as an important focal point for exchange of information and
-            collaboration. Such communication and coordination helps to achieve
-            efficiency and economy for the home groups and to assure AA’s
-            availability to help the suffering alcoholic and those in recovery.
-          </p>
-        </details>
+        <h3>Serve as a Forum for Communication Among Home Groups</h4>
+        <p>
+          Both Intergroup and JDSC are forums for communication and coordination
+          among home groups. Where there are activities, projects, issues and
+          questions that cut across many home groups, JDI serves as an important
+          focal point for exchange of information and collaboration. Such
+          communication and coordination helps to achieve efficiency and economy
+          for the home groups and to assure AA’s availability to help the
+          suffering alcoholic and those in recovery.
+        </p>
 
-        <details>
-          <summary>Coordinate Issues of Intergroup Interest and Concern</summary
-          >
-          <p>
-            Every home group is entitled and encouraged to send a representative
-            to the monthly JDI meetings, held at 7:00 PM on the first Thursday
-            of the month at Westminster Presbyterian Church, 450 Rugby Road.
-            Individual members are always welcomed guests! Pursuant to the
-            governance bylaws, decisions are made after discussion and voting by
-            groups’ representatives.
-          </p>
-        </details>
+        <h3>Coordinate Issues of Intergroup Interest and Concern</h4>
+        <p>
+          Every home group is entitled and encouraged to send a representative
+          to the monthly JDI meetings, held at 7:00 PM on the first Thursday of
+          the month at Westminster Presbyterian Church, 450 Rugby Road.
+          Individual members are always welcomed guests! Pursuant to the
+          governance bylaws, decisions are made after discussion and voting by
+          groups’ representatives.
+        </p>
 
-        <details>
-          <summary
-            >Financially Support Intergroup Operations and Services</summary
-          >
-          <p>
-            The services provided by Intergroup are made possible by
-            contributions from home groups and AA members. Without those
-            contributions, Intergroup cannot provide the services listed above.
-            Home groups are encouraged to make quarterly contributions to JDI to
-            support ongoing operations and services. Contributions from AA
-            members are always helpful too. Donations can be made payable to
-            Jefferson District Intergroup and mailed to P.O. Box 6911,
-            Charlottesville, VA 22906.
-          </p>
-        </details>
+        <h3>Financially Support Intergroup Operations and Services</h4>
+        <p>
+          The services provided by Intergroup are made possible by contributions
+          from home groups and AA members. Without those contributions,
+          Intergroup cannot provide the services listed above. Home groups are
+          encouraged to make quarterly contributions to JDI to support ongoing
+          operations and services. Contributions from AA members are always
+          helpful too. Donations can be made payable to Jefferson District
+          Intergroup and mailed to P.O. Box 6911, Charlottesville, VA 22906.
+        </p>
       </section>
     </section>
   </div>

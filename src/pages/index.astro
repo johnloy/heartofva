@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/BaseLayout.astro'
 import MeetingsSoon from '../components/MeetingsSoon.astro'
+import '../assets/home-layout.css'
 
 export const title = 'Home'
 ---
@@ -9,8 +10,8 @@ export const title = 'Home'
   <div class="layout">
     <aside id="preamble">
       <blockquote>
-        <div class="quote">
-          <span class="left-quote">“</span>
+        <div class="Quote Box position-block">
+          <span class="left-quote positioned">“</span>
           <p>
             Alcoholics Anonymous is a fellowship of people who share their
             experience, strength and hope with each other that they may solve
@@ -18,7 +19,7 @@ export const title = 'Home'
           </p>
           <p>
             The only requirement for membership is a desire to stop drinking.
-          </p><span class="right-quote">”</span>
+          </p><span class="right-quote positioned">”</span>
         </div>
         <footer>
           —<cite><a href="https://www.aa.org/aa-preamble">AA Preamble</a></cite>
@@ -137,16 +138,16 @@ export const title = 'Home'
             >
           </li>
           <li>
-            <a href="./archives">Archives of AA Heart of Virginia District</a>
+            <a href="/archives">Archives of AA Heart of Virginia District</a>
           </li>
         </ul>
       </section>
       <section id="resources-for-service-positions">
         <h3>For Service Positions</h3>
         <ul>
-          <li>Group Treasurers</li>
-          <li>Intergroup Representatives</li>
-          <li>General Service Representatives (G.S.R)</li>
+          <li><a href="/service-opportunities#group-treasurer">Group Treasurer</a></li>
+          <li><a href="/service-opportunities#intergroup-rep">Intergroup Representative</a></li>
+          <li><a href="/service-opportunities#gsr">General Service Representative (GSR)</a></li>
         </ul>
       </section>
       <section id="related-organizations">
@@ -176,28 +177,43 @@ export const title = 'Home'
 
 <style>
   .layout {
-    display: grid;
-    grid-template:
-      'quote quote quote quote quote quote' min-content
-      'meetings-soon meetings-soon meetings-soon meetings-soon regions-served regions-served' min-content
-      'new-to-aa new-to-aa new-to-aa other-situations other-situations other-situations' min-content
-      'member-resources member-resources member-resources member-resources member-resources member-resources' auto / 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 2rem;
-    grid-row-gap: 3rem;
+    margin-block-end: 2rem;
+  }
+
+  @media (min-width: 38em) {
+    .layout {
+      display: grid;
+      grid-template:
+        'quote quote quote quote quote quote' min-content
+        'meetings-soon meetings-soon meetings-soon meetings-soon regions-served regions-served' min-content
+        'new-to-aa new-to-aa new-to-aa other-situations other-situations other-situations' min-content
+        'member-resources member-resources member-resources member-resources member-resources member-resources' auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-column-gap: 2rem;
+      grid-row-gap: 3rem;
+    }
+  }
+
+  .layout > :global(* + *) {
+    margin-block-start: 1.5rem;
+  }
+  @media (min-width: 38em) {
+    .layout > :global(* + *) {
+      margin-block-start: 0;
+    }
   }
 
   .layout > :global(section) {
     padding: 1rem 1.5rem 2rem;
     backdrop-filter: blur(10px);
     border-radius: 8px;
-    margin: 0;
+    /* margin: 0; */
     background: rgba(255, 255, 255, 0.7);
     /* border: 1px solid white; */
     box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5);
   }
 
   .layout > :global(section *:last-child) {
-    margin-block-end: 0;
+    /* margin-block-end: 0; */
   }
 
   .layout > :global(section h2) {
@@ -282,8 +298,16 @@ export const title = 'Home'
     /* border-left: 0; */
   }
 
-  .quote {
+  /* .quote {
     position: relative;
+  } */
+
+  .Quote {
+
+  }
+
+  .left-quote + p {
+    margin-block-start: 0;
   }
 
   .left-quote,

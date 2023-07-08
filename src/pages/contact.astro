@@ -5,14 +5,41 @@ export const title = 'Contact'
 ---
 
 <Layout title={title}>
-  <div class="content-bg">
+  <div class="main-content surface-primary">
     <h1>{title}</h1>
+    <aside>
+      <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li>
+            <a href="#phone-email">Call or Email 24/7</a>
+          </li>
+          <li>
+            <a href="#office-address">Office</a>
+          </li>
+          <li>
+            <a href="#mailing-address">Mail</a>
+          </li>
+          <li>
+            <a href="#aa-virginia">Virginia Area Committee</a>
+          </li>
+          <li>
+            <a href="#aa-world">Alcoholics Anonymouse World Services, GSO</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
 
     <section id="phone-email">
       <h2>Call or email 24/7</h2>
 
-      <p>Hotline: (434) 293-6565</p>
-      <p>aacharlottesville@gmail.com</p>
+      <div class="contact-vitals">
+        <p><strong>Hotline:</strong> (434) 293-6565,</p>
+        <p>
+          <a href="mailto:aacharlottesville@gmail.com"
+            >aacharlottesville@gmail.com</a>
+        </p>
+      </div>
 
       <h3>Regarding</h3>
       <ul>
@@ -49,8 +76,6 @@ export const title = 'Contact'
         1807 Emmet Street N, Suite 3-A <br />
         Charlottesville VA 22901 <br />
       </address>
-
-      <a href="">Volunteer for office service</a>
     </section>
 
     <section id="mailing-address">
@@ -97,7 +122,10 @@ export const title = 'Contact'
       </section>
 
       <section id="aa-world">
-        <h2>Alcoholics Anonymous World Services</h2>
+        <h3>
+          <a href="https://www.aa.org/contact-gso"
+            >Alcoholics Anonymous World Services, GSO</a>
+        </h3>
         <address>
           General Service Office <br />
           P.O. Box 459 <br />
@@ -108,3 +136,27 @@ export const title = 'Contact'
     </section>
   </div>
 </Layout>
+
+<style>
+  .contact-vitals {
+    /* border: 1px solid var(--color-green-3); */
+    background-color: white;
+    padding: 1rem 1.25rem;
+    margin-block-end: 1.5rem;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+    justify-content: flex-start;
+    border-radius: 4px;
+  }
+
+  .contact-vitals > * {
+    font-family: var(--font-family-sans);
+    font-weight: 300;
+    font-size: var(--font-size-md);
+    margin: 0;
+    width: max-content;
+  }
+</style>
