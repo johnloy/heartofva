@@ -2851,10 +2851,11 @@ input:not(
   flex-basis: fit-content;
 }
 
-.SiteFooter :is(.office-address, .mailing-address) {
+.SiteFooter :is(.office-address, .mailing-address, address) {
   display: flex;
   flex-wrap: wrap;
   column-gap: 2rem;
+  font-style: normal;
 }
 
 .SiteFooter .office-address {
@@ -2892,8 +2893,8 @@ input:not(
 
 .SiteFooter hr {
   flex-basis: 100% !important;
-  border-top: 1px solid var(--color-gray-4);
-  margin-bottom: 1rem;
+  border-top: 1px solid var(--color-gray-3);
+  margin-block: 1rem;
 }
 
 .SiteFooter :is(.sponsored-by, .copyright) {
