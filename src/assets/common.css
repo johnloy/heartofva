@@ -1,9 +1,7 @@
-
-/* ANCHOR (var) Base typography and spacing */
 :root {
-  --font-family: 'Merriweather', serif;
-  --font-family-serif: 'Merriweather', serif;
-  --font-family-sans: 'Merriweather Sans', serif;
+  --font-family: "Merriweather", serif;
+  --font-family-serif: "Merriweather", serif;
+  --font-family-sans: "Merriweather Sans", serif;
   --font-family-mono: "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace",
     "Noto Mono", "Oxygen Mono", "Liberation Mono", monospace,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -36,8 +34,8 @@
   --modal-overlay-backdrop-filter: blur(0.25rem);
 }
 
-[data-theme=light],
-:root:not([data-theme=dark]) {
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
   --background-color: #fff;
   --color: hsl(205, 20%, 32%);
   --h1-color: hsl(205, 30%, 15%);
@@ -108,8 +106,7 @@
   --accordion-open-summary-color: var(--muted-color);
   --card-background-color: var(--background-color);
   --card-border-color: var(--muted-border-color);
-  --card-box-shadow:
-    0.0145rem 0.029rem 0.174rem rgba(27, 40, 50, 0.01698),
+  --card-box-shadow: 0.0145rem 0.029rem 0.174rem rgba(27, 40, 50, 0.01698),
     0.0335rem 0.067rem 0.402rem rgba(27, 40, 50, 0.024),
     0.0625rem 0.125rem 0.75rem rgba(27, 40, 50, 0.03),
     0.1125rem 0.225rem 1.35rem rgba(27, 40, 50, 0.036),
@@ -142,7 +139,6 @@
   color-scheme: light;
 }
 
-
 /* ==========================================================================
  * SECTION Design tokens
  * ========================================================================== */
@@ -153,14 +149,32 @@
 /* Fluid font size variables, for browsers that support clamp */
 @supports (font-size: clamp(1rem, 1vw, 1rem)) {
   :where(:root) {
-    --font-size-xs: clamp(0.64rem, 0.1vw + 0.62rem, 0.74rem);
+    /* --font-size-xs: clamp(0.64rem, 0.1vw + 0.62rem, 0.74rem);
     --font-size-sm: clamp(0.8rem, 0.13vw + 0.78rem, 0.93rem);
     --font-size-base: clamp(1rem, 0.16vw + 0.97rem, 1.16rem);
     --font-size-md: clamp(1.25rem, 0.2vw + 1.21rem, 1.45rem);
     --font-size-lg: clamp(1.56rem, 0.24vw + 1.51rem, 1.81rem);
     --font-size-xl: clamp(1.95rem, 0.31vw + 1.89rem, 2.26rem);
     --font-size-xxl: clamp(2.44rem, 0.38vw + 2.37rem, 2.82rem);
-    --font-size-xxxl: clamp(3.05rem, 0.48vw + 2.96rem, 3.53rem);
+    --font-size-xxxl: clamp(3.05rem, 0.48vw + 2.96rem, 3.53rem); */
+
+    /* --font-size-xs: clamp(0.56rem, 0.18vw + 0.52rem, 0.67rem);
+    --font-size-sm: clamp(0.7rem, 0.32vw + 0.64rem, 0.89rem);
+    --font-size-base: clamp(0.88rem, 0.52vw + 0.77rem, 1.19rem);
+    --font-size-md: clamp(1.09rem, 0.82vw + 0.93rem, 1.58rem);
+    --font-size-lg: clamp(1.37rem, 1.24vw + 1.12rem, 2.11rem);
+    --font-size-xl: clamp(1.71rem, 1.84vw + 1.34rem, 2.81rem);
+    --font-size-xxl: clamp(2.14rem, 2.69vw + 1.6rem, 3.75rem);
+    --font-size-xxxl: clamp(2.67rem, 3.88vw + 1.89rem, 5rem); */
+
+    --font-size-xs: clamp(0.56rem, 0.27vw + 0.51rem, 0.72rem);
+    --font-size-sm: clamp(0.7rem, 0.33vw + 0.63rem, 0.9rem);
+    --font-size-base: clamp(0.88rem, 0.42vw + 0.79rem, 1.13rem);
+    --font-size-md: clamp(1.09rem, 0.52vw + 0.99rem, 1.41rem);
+    --font-size-lg: clamp(1.37rem, 0.65vw + 1.24rem, 1.76rem);
+    --font-size-xl: clamp(1.71rem, 0.81vw + 1.55rem, 2.2rem);
+    --font-size-xxl: clamp(2.14rem, 1.02vw + 1.93rem, 2.75rem);
+    --font-size-xxxl: clamp(2.67rem, 1.27vw + 2.42rem, 3.43rem);
 
     --line-height-base: 1.5;
   }
@@ -506,7 +520,6 @@
 
 /* !SECTION Design tokens */
 
-
 /* ==========================================================================
  * SECTION Keyframe animations
  * ========================================================================== */
@@ -526,7 +539,11 @@
   }
 }
 
-/* SECTION Reset */
+/* !SECTION Keyframe animations */
+
+/* ==========================================================================
+ * SECTION Reset
+ * ========================================================================== */
 
 :where(:root) {
   /* See: https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
@@ -537,16 +554,17 @@
   /* Prevent default background repeat. Prefer explicitness. */
   background-repeat: no-repeat;
 
-  /* Prefer the more intuitive box-model */
-  box-sizing: border-box;
-
   /* Prefer rendering speed. Use optimizeLegibility sparingly, as needed later. */
   text-rendering: optimizeSpeed;
 }
 
 :where(:root :is(*, *:before, *:after)) {
   background-repeat: inherit;
-  box-sizing: inherit;
+
+  /* Prefer the more intuitive box-model
+     `inherit` doesn't work because the Shadow DOM of some elements, like <details>/<summary>
+     set `box-sizing` to `content-box`, forcing children to use that as well */
+  box-sizing: border-box;
 }
 
 /* See: https://css-tricks.com/fixing-smooth-scrolling-with-find-on-page/ */
@@ -638,7 +656,6 @@ template {
   display: none !important;
 }
 
-/* ANCHOR (base) <canvas> */
 canvas {
   display: inline-block;
 }
@@ -660,22 +677,32 @@ textarea,
   direction: rtl;
 }
 
-/* !SECTION */
+/* !SECTION Reset */
 
-/* SECTION Typography base */
+/* ==========================================================================
+ * SECTION Typography base
+ * ========================================================================== */
+
+/* ANCHOR Global inheritable properties
+ * -------------------------------------------------------------------------- */
 
 :where(:root) {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
   font-weight: var(--font-weight);
+  font-size: var(--font-size-base);
   line-height: var(--line-height-base);
 
+  /* Prevent long words from overflowing their container */
   overflow-wrap: break-word;
-  /* cursor: default; */
+
+  /* Set rendered size of tab character */
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
 }
+
+/* ANCHOR Normalize headings
+ * -------------------------------------------------------------------------- */
 
 :where(h1, h2, h3, h4, h5, h6) {
   font-weight: 500;
@@ -714,9 +741,21 @@ kbd {
   font-weight: bolder;
 }
 
-/* !SECTION */
+/* !SECTION Typography base */
 
-/* SECTION Colorization base */
+/* ==========================================================================
+ * SECTION Colorization base
+ * ========================================================================== */
+
+/* ANCHOR Global inheritable properties
+ * -------------------------------------------------------------------------- */
+
+:where(:root) {
+  color: var(--color-style-me);
+}
+
+/* ANCHOR Site background
+ * -------------------------------------------------------------------------- */
 
 :where(:root) {
   background: linear-gradient(
@@ -727,8 +766,6 @@ kbd {
     ),
     white;
   background-attachment: fixed;
-
-  color: var(--color-style-me);
 }
 
 /* ANCHOR Selection
@@ -753,10 +790,13 @@ progress,
 
 /* !SECTION Colorization base */
 
+/* ==========================================================================
+ * SECTION Reusable components
+ * ========================================================================== */
 
-/* SECTION Reusable components */
+/* ANCHOR Link
+ * -------------------------------------------------------------------------- */
 
-/* ANCHOR Links */
 a,
 [role="link"] {
   --background-color: transparent;
@@ -783,7 +823,7 @@ a:focus,
 }
 
 /* ANCHOR Text markup
- * ========================================================================== */
+ * -------------------------------------------------------------------------- */
 
 /* Inserted */
 ins {
@@ -812,7 +852,8 @@ abbr[title] {
 }
 
 /* ANCHOR Quote (blockquote)
- * ========================================================================== */
+ * -------------------------------------------------------------------------- */
+
 blockquote {
   display: block;
   margin: var(--typography-spacing-vertical) 0;
@@ -830,7 +871,9 @@ blockquote footer {
   color: var(--blockquote-footer-color);
 }
 
-/* ANCHOR Button */
+/* ANCHOR Button
+ * -------------------------------------------------------------------------- */
+
 button {
   margin: 0;
   overflow: visible;
@@ -895,6 +938,7 @@ input[type="reset"]:is([aria-current], :hover, :active, :focus),
   --box-shadow: none;
   --color: var(--primary-inverse);
 }
+
 button:focus,
 input[type="submit"]:focus,
 input[type="button"]:focus,
@@ -917,6 +961,7 @@ input[type="reset"] {
   --color: var(--secondary-inverse);
   cursor: pointer;
 }
+
 :is(
     button,
     input[type="submit"],
@@ -928,6 +973,7 @@ input[type="reset"]:is([aria-current], :hover, :active, :focus) {
   --border-color: var(--secondary-hover);
   --color: var(--secondary-inverse);
 }
+
 :is(
     button,
     input[type="submit"],
@@ -979,6 +1025,7 @@ input[type="reset"].outline {
   --background-color: transparent;
   --color: var(--primary);
 }
+
 :is(
     button,
     input[type="submit"],
@@ -999,6 +1046,7 @@ input[type="reset"].outline:is([aria-current], :hover, :active, :focus) {
 input[type="reset"].outline {
   --color: var(--secondary);
 }
+
 :is(
     button,
     input[type="submit"],
@@ -1017,6 +1065,7 @@ input[type="reset"].outline:is([aria-current], :hover, :active, :focus) {
   ).outline.contrast {
   --color: var(--contrast);
 }
+
 :is(
     button,
     input[type="submit"],
@@ -1047,7 +1096,7 @@ a[role="button"]:not([href]) {
 }
 
 /* ANCHOR Box
- * ========================================================================== */
+ * -------------------------------------------------------------------------- */
 
 .Box {
   display: block;
@@ -1066,6 +1115,9 @@ a[role="button"]:not([href]) {
   ) {
   margin-inline-start: 0;
 }
+
+/* ANCHOR List
+ * -------------------------------------------------------------------------- */
 
 /* nav,
 nav ul {
@@ -1098,7 +1150,7 @@ nav ul {
 } */
 
 /* ANCHOR Nav list
- * ========================================================================== */
+ * -------------------------------------------------------------------------- */
 
 ul:where(.nav, nav > ul) {
   padding: 0;
@@ -1126,7 +1178,7 @@ nav :where(a, [role="link"]):is([aria-current], :hover, :active, :focus) {
 }
 
 /* ANCHOR Details discosure
- * ========================================================================== */
+ * -------------------------------------------------------------------------- */
 
 details {
   display: block;
@@ -1211,7 +1263,9 @@ details[open] > summary::after {
   margin-inline: 0.5rem;
 }
 
-/* SECTION Forms */
+/* ==========================================================================
+ * SECTION Forms
+ * ========================================================================== */
 
 /* ANCHOR Form inputs */
 input,
@@ -2033,7 +2087,29 @@ input:not(
 
 /* !SECTION Reusable components */
 
-/* SECTION Site layout base */
+/* ==========================================================================
+ * SECTION Decorators
+ * ========================================================================== */
+
+.white-box-1 {
+  background-color: white;
+  border: 1px solid hsl(154deg 33% 59% / 80%);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+
+.surface-primary {
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border-top: 1px solid white;
+}
+
+/* !SECTION Decorators */
+
+/* ==========================================================================
+ * SECTION Site layout base
+ * ========================================================================== */
 
 /* ANCHOR Body, header, footer
  * ========================================================================== */
@@ -2060,8 +2136,8 @@ input:not(
 
 .page-width {
   width: 100%;
-  max-width: 90em;
-  min-width: 20em;
+  max-width: 90rem;
+  min-width: 22.7rem;
   margin-inline: auto;
   padding-inline: 0.75rem;
 }
@@ -2093,16 +2169,18 @@ input:not(
 /* ANCHOR Readable text
  * ========================================================================== */
 
-.readable {
+:where(.readable) {
   color: var(--color-text-readable);
 }
 
-.readable :is(a, [role="link"]) {
+:where(.readable) :is(a, a:visited, [role="link"]) {
   color: var(--color-link-readable);
   text-decoration: underline;
+  text-underline-offset: 0.1em;
+  text-decoration-color: hsl(154deg 33% 59% / 60%);
 }
 
-.readable
+:where(.readable)
   :is(
     a:is(:hover, :focus, :active),
     [role="link"]:is(:hover, :focus, :active)
@@ -2137,7 +2215,7 @@ input:not(
  * ========================================================================== */
 
 .SiteHeader {
-  padding-block-end: 1.5rem;
+  padding-block-end: 1rem;
 }
 
 .SiteHeader p {
@@ -2162,30 +2240,45 @@ input:not(
   position: relative;
   text-decoration: none;
   transform-origin: left;
-  scale: 0.55;
+  scale: 0.69;
   white-space: nowrap;
   transition: scale 0.2s ease-out;
   margin-block: -1.35rem;
 }
 
+.SiteHeader .logo:focus-visible {
+  border-radius: 1px;
+  outline-style: solid;
+  outline-offset: 0.5rem;
+}
+
 @media (min-width: 26em) {
   .SiteHeader .logo {
     scale: 0.7;
-    margin-block: -0.75rem;
+    margin-block: -1rem;
   }
 }
 
-@media (min-width: 46em) {
+@media (min-width: 60em) {
   .SiteHeader .logo {
-    scale: 0.85;
+    /* scale: 0.80; */
     margin-block: -0.45rem;
+    margin-inline-end: -7rem;
   }
 }
 
-@media (min-width: 80em) {
+@media (min-width: 84em) {
+  .SiteHeader .logo {
+    scale: 0.8;
+    margin-block: -0.1rem;
+    /* margin-inline-end: 0; */
+  }
+}
+
+@media (min-width: 90em) {
   .SiteHeader .logo {
     scale: 0.9;
-    margin-block: -0.1rem;
+    margin-block: -0.05rem;
   }
 }
 
@@ -2221,7 +2314,7 @@ input:not(
 }
 
 .SiteHeader .masthead .page-width {
-  padding-block: 1.125rem;
+  padding-block: 1.5rem;
   /* padding-block-start: 1rem;
 	padding-block-end: 0.75rem; */
 
@@ -2272,8 +2365,8 @@ input:not(
 
 .SiteHeader .district-regions {
   position: absolute;
-  bottom: 0;
-  left: 5.4rem;
+  bottom: -0.1rem;
+  left: 5.35rem;
   font-size: 1.2rem;
   color: var(--color-blue-5);
 }
@@ -2293,7 +2386,7 @@ input:not(
 
 .SiteHeader .contact-header {
   padding: 0.5em;
-  background: #ebf2fc;
+  background: white;
   border-radius: 2rem;
   text-transform: uppercase;
   font-size: var(--font-size-sm);
@@ -2328,11 +2421,12 @@ input:not(
   align-items: center;
   white-space: nowrap;
   margin-block-start: 0.5rem;
+  margin-block-end: 0.125rem;
 }
 
 @media (min-width: 38em) {
   .SiteNav {
-    margin-block-start: 0;
+    margin-block-end: 0.5rem;
   }
 }
 
@@ -2344,7 +2438,8 @@ input:not(
 
 .SiteNav > ul {
   display: flex;
-  column-gap: 0.5rem;
+  /* gap: 0.5rem; */
+  row-gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: center;
   margin-inline: 0;
@@ -2389,10 +2484,15 @@ input:not(
 .SiteNav [data-name="meetings"] {
   padding: 0;
   width: 100%;
-  margin-inline-end: 0.75rem;
   /*
   font-size: var(--font-size-sm); /* 10px * /
   */
+}
+
+@media (min-width: 80em) {
+  .SiteNav [data-name="meetings"] {
+    margin-inline-end: 0.75rem;
+  }
 }
 
 .SiteNav [data-name="contact"] {
@@ -2422,7 +2522,7 @@ input:not(
 
 @media (min-width: 60em) {
   .SiteNav [data-name="meetings"] {
-    top: 1.75rem;
+    top: 2rem;
     right: 1.75rem;
   }
 }
@@ -2434,8 +2534,9 @@ input:not(
   }
 }
 
-/* SECTION MeetingsNav */
-
+/* ==========================================================================
+ * SECTION MeetingsNav
+ * ========================================================================== */
 
 .MeetingsNav {
   position: relative;
@@ -2454,10 +2555,15 @@ input:not(
   padding: 0;
   position: relative;
   margin: 0;
-  width: max-content;
   overflow: hidden;
   transition: none;
   box-shadow: none;
+}
+
+@media (min-width: 38em) {
+  .MeetingsNav > summary {
+    width: max-content;
+  }
 }
 
 .MeetingsNav > summary > * {
@@ -2466,6 +2572,7 @@ input:not(
   z-index: 2;
   position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   column-gap: 0.25rem;
   height: auto;
@@ -2503,7 +2610,7 @@ input:not(
 .MeetingsNav[open] > summary {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom-color: white;
+  border-bottom: 0;
   margin: 0;
 }
 
@@ -2522,14 +2629,38 @@ input:not(
 
 .MeetingsNav > .dropdown {
   background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 100vw;
+  border-radius: 4px;
+  padding: 0 1.5rem 1.5rem;
+  /* width: 100vw; */
   position: fixed;
-  left: 1.5rem;
+  /* left: 1.5rem; */
   translate: 0;
-  max-width: calc(100vw - 2 * 1.5rem);
+  /* max-width: calc(100vw - (2 * 1.5rem)); */
   font-family: var(--font-family-sans);
+  /* left: 0.75rem;
+  right: 0.75rem; */
+
+  height: calc(100vh - 112px);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top: 0;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border: 1px solid var(--color-azure-4);
+  overflow-y: scroll;
+}
+
+@media (min-width: 38em) {
+  .MeetingsNav > .dropdown {
+    left: auto;
+    right: 0;
+    min-width: 36rem;
+    height: auto;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+  }
 }
 
 .MeetingsNav[open] > .dropdown {
@@ -2538,12 +2669,11 @@ input:not(
 
 @media screen and (min-width: 50rem) {
   .MeetingsNav .dropdown {
-    position: absolute;
-    max-width: 34rem;
-    left: 50%;
+    /* position: absolute; */
+    /* left: 50%; */
     z-index: 1;
     /* opacity: 0;*/
-    transform: translate(-50%, 0);
+    /* transform: translate(-50%, 0); */
     /* transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s; */
     animation-duration: 0.5s;
     animation-fill-mode: both;
@@ -2560,17 +2690,45 @@ input:not(
   }
 }
 
-.MeetingsNav .weekday-filter fieldset {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid black;
+@media screen and (min-width: 80rem) {
+  .MeetingsNav > .dropdown {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%);
+    border-top-right-radius: 8px;
+  }
 }
 
-.MeetingsNav .weekday-filter legend {
-  /* See: https://morgan.cugerone.com/blog/how-to-make-a-fieldset-legend-inline/ */
-  float: left;
+.MeetingsNav .weekday-filter {
+  position: sticky;
+  top: 0;
+  /* border: 1px solid green; */
+  padding: 1.125rem 1.5rem;
+  background: hsl(213 100% 95% / 0.8);
+
+  border-radius: 0;
+  border-width: 0 0 1px 0;
+  margin-inline: -1.5rem;
+  transform: translate(0, -1.5rem);
+  backdrop-filter: blur(2px);
+  margin-block: 0;
+}
+
+.MeetingsNav .weekday-filter fieldset {
+  margin: 0;
+}
+
+@media (min-width: 38rem) {
+  .MeetingsNav .weekday-filter {
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    transform: none;
+  }
+
+  .MeetingsNav .weekday-filter legend {
+    /* See: https://morgan.cugerone.com/blog/how-to-make-a-fieldset-legend-inline/ */
+    float: left;
+  }
 }
 
 .MeetingsNav .weekday-filter h2 {
@@ -2579,6 +2737,7 @@ input:not(
   line-height: 2;
   margin: 0 1rem 0 0;
   text-transform: uppercase;
+  color: var(--color-amber-6);
 }
 
 .MeetingsNav .weekday-filter [role="radiogroup"] {
@@ -2602,17 +2761,18 @@ input:not(
 }
 
 .MeetingsNav .weekday-filter input:not(:checked) {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-amber-3);
+  background-color: white;
 }
 
-.MeetingsNav .weekday-filter input:hover {
-  --background-color: #d9ebfd;
+.MeetingsNav .weekday-filter input:not(:checked):hover {
+  background-color: var(--color-amber-1);
 }
 
 .MeetingsNav
   .weekday-filter
   input:is(:checked, :checked:active, :checked:focus) {
-  --background-color: #10599d;
+  --background-color: var(--color-azure-4);
 }
 
 .MeetingsNav .weekday-filter abbr {
@@ -2635,12 +2795,13 @@ input:not(
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, calc(50% - 1rem / 2)));
   grid-gap: 1rem;
-  font-size: var(--font-size-sm);
+  color: var(--color-text-readable);
 }
 
 .MeetingsNav .locations h3 {
   margin-bottom: 1rem;
-  font-size: 1rem;
+  color: var(--color-cinnamon-5);
+  font-weight: 700;
 }
 
 .MeetingsNav .location {
@@ -2651,7 +2812,7 @@ input:not(
 .MeetingsNav .locations a {
   /* color: #10599d !important; */
   color: var(--color-link-readable);
-  font-weight: 700;
+  font-weight: 500;
   margin-left: 0;
 }
 
@@ -2743,7 +2904,9 @@ input:not(
 
 /* !SECTION */
 
-/* SECTION Utilities */
+/* ==========================================================================
+ * SECTION Utilities
+ * ========================================================================== */
 
 .optimize-legibility {
   text-rendering: optimizeLegibility;
@@ -2775,10 +2938,15 @@ input:not(
   min-width: 0;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /* !SECTION */
 
-
-/* SECTION Override utilities */
+/* ==========================================================================
+ * SECTION Override utilities
+ * ========================================================================== */
 
 /* ANCHOR Screen reader only */
 .sr-only {

@@ -13,8 +13,8 @@ const { title, url } = Astro.props
     class="dropdown"
   >
     <h1 id="meetings-nav-title" class="sr-only">Filter Meetings List</h1>
-    <section>
-      <form class="weekday-filter">
+    <section class="weekday-filter">
+      <form>
         <fieldset>
           <legend><h2>Weekday:</h2></legend>
           <div role="radiogroup">
@@ -76,32 +76,38 @@ const { title, url } = Astro.props
 
   navEl.addEventListener('keydown', function(e) {
     if(e.key === 'Escape') {
-      toggleDetails('close', e)
+      navEl.open = false
+      // toggleDetails('close', e)
     }
   })
 
   const toggleDetails = (which, e) => {
     const isOpen = navEl.open
     if (which === 'open' && !isOpen && e.relatedTarget !== listBoxEl) {
-      navEl.open = true
+      // navEl.open = true
       listBoxEl.classList.add('--open')
+      document.body.classList.add('no-scroll')
     } else if (
       which === 'close' &&
       isOpen &&
       !navEl.contains(e.relatedTarget)
     ) {
       listBoxEl.classList.remove('--open')
-      setTimeout(() => (navEl.open = false), 400)
+      document.body.classList.remove('no-scroll')
+      // setTimeout(() => (navEl.open = false), 400)
     }
   }
 
-  summaryEl.addEventListener('click', (e) => {
-    if (!navEl.open && e.target.localName !== 'a') {
-      toggleDetails('open', e)
-      e.preventDefault()
-    } else if (e.currentTarget === null) {
-      toggleDetails('close', e)
-    }
+  navEl.addEventListener('toggle', function(e) {
+    // document.body.classList.toggle('no-scroll')
+    // if (!this.open) {
+    //   document.body.classList.remove('no-scroll')
+    //   // toggleDetails('open', e)
+    //   // e.preventDefault()
+    // } else {
+    //   document.body.classList.add('no-scroll')
+    //   // toggleDetails('close', e)
+    // }
     // if (navEl.open && e.target.localName !== 'a') e.preventDefault()
   })
 
@@ -161,7 +167,7 @@ const { title, url } = Astro.props
     render(template, $('.locations', navEl))
   }
 
-  const weekdayFilterFormEl = $('.MeetingsNav form.weekday-filter')
+  const weekdayFilterFormEl = $('.MeetingsNav .weekday-filter form')
 
   const weekdayFilterInputs = $$('input[type="radio"]', weekdayFilterFormEl)
 
@@ -178,7 +184,6 @@ const { title, url } = Astro.props
 
     weekdayFilterInputs[today].checked = true
 
-    console.log(meetingsByDay)
     renderRegionMeetings(
       meetingsByDay[today],
       WEEKDAY_NAMES[today].toLowerCase()

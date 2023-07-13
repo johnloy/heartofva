@@ -1,7 +1,5 @@
-
-/* ==========================================================================
-/* SECTION Typography base
- * ========================================================================== */
+/* ANCHOR Typography base
+ * -------------------------------------------------------------------------- */
 
 .main-content :is(h1, h2, h3, h4, h5, h6) {
   margin-block-end: 1.5rem;
@@ -14,6 +12,8 @@
 .main-content h2 {
   font-size: var(--font-size-lg);
   font-weight: 300;
+  border-block-end: 1px dotted var(--color-green-3);
+  padding-block-end: 0.25rem;
 }
 
 .main-content h3 {
@@ -25,21 +25,151 @@
 }
 
 :where(
-	.main-content
-	:is(
-		address,
-		blockquote,
-		dl,
-		figure,
-		form,
-		ol,
-		p,
-		pre,
-		table,
-		ul
-	)
-) {
+    .main-content
+      :is(address, blockquote, dl, figure, form, ol, p, pre, table, ul)
+  ) {
   margin-block: 1.5rem;
 }
 
-/* !SECTION Typography */
+/* ANCHOR Main content layout
+ * -------------------------------------------------------------------------- */
+
+.main-content {
+  padding: 3rem 4rem;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-rows: auto;
+  grid-auto-rows: auto;
+  grid-template-areas:
+    "main aside"
+    "main aside";
+  column-gap: 4rem;
+}
+
+.main-content > *:not(aside) {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.main-content > aside {
+  grid-area: aside;
+  grid-row-start: 2;
+  position: sticky;
+  top: 2rem;
+  margin-top: 2.7rem;
+}
+
+/* ANCHOR TOC
+ * -------------------------------------------------------------------------- */
+
+.main-content > aside > .toc {
+  position: absolute;
+  top: 0;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  box-shadow: 8px 8px 0 rgba(96, 111, 211, 0.2);
+  width: 100%;
+}
+
+.main-content > aside > .toc * {
+  font-size: inherit;
+}
+
+.main-content > aside > .toc h3 {
+  text-transform: uppercase;
+  line-height: 1;
+  margin-block-end: 1.5rem;
+}
+
+.main-content > aside > .toc > ul > li + li {
+  margin-block-start: 1.5rem;
+}
+
+.main-content > aside > .toc ul {
+  font-family: var(--font-family-sans);
+  margin-block-end: 0;
+}
+
+.main-content > aside > .toc ul ul {
+  padding-inline: 0.5rem;
+}
+
+.main-content > aside > .toc ul ul li {
+  padding-inline: 0.5rem;
+}
+
+.main-content > aside > .toc ul {
+  margin-block-start: 0.5rem;
+}
+
+.main-content > aside > .toc li {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.main-content > aside > .toc li li {
+  font-weight: 300;
+  margin: 0 0 0.5rem 0;
+}
+.main-content > aside > .toc li li::marker {
+  content: "‒";
+  display: block;
+  left: -0.25rem;
+  font-weight: 500;
+}
+
+.resources {
+  /* border: 1px solid white; */
+  background-color: var(--color-gray-5);
+  color: var(--color-gray-2);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  font-weight: 300;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem 1.125rem;
+}
+
+.resources p {
+  color: inherit;
+  margin: 0;
+}
+
+.resources h4 {
+  font-size: var(--font-size-base);
+  color: inherit;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.resources ul {
+  margin: 0;
+  color: inherit;
+}
+
+.resources li {
+  padding: 0;
+  list-style: disc;
+  display: list-item;
+}
+
+.resources a {
+  color: var(--color-green-1);
+  display: inline;
+  text-decoration: none;
+}
+
+.resources a:hover {
+  color: var(--color-green-1);
+  text-decoration: underline;
+}
+
+.resources * {
+  font-size: inherit;
+  font-weight: inherit;
+}

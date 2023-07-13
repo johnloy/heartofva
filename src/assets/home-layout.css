@@ -1,0 +1,414 @@
+/* ==========================================================================
+ * ANCHOR Page layout grid
+ * ========================================================================== */
+
+.layout {
+  margin-block-end: 2rem;
+}
+
+@media (min-width: 43em) {
+  .layout {
+    display: grid;
+    grid-template:
+      "quote            quote            quote            quote            quote            quote" min-content
+      "meetings-soon    meetings-soon    meetings-soon    meetings-soon    meetings-soon    meetings-soon" min-content
+      "regions-served   regions-served   regions-served   regions-served   regions-served   regions-served" min-content
+      "new-to-aa        new-to-aa        new-to-aa        other-situations other-situations other-situations" min-content
+      "member-resources member-resources member-resources member-resources member-resources member-resources" auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .layout {
+    grid-template:
+      "quote            quote            quote            quote            quote            quote" min-content
+      "meetings-soon    meetings-soon    meetings-soon    meetings-soon    regions-served   regions-served" min-content
+      "new-to-aa        new-to-aa        new-to-aa        other-situations other-situations other-situations" min-content
+      "member-resources member-resources member-resources member-resources member-resources member-resources" auto / 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.layout > * + * {
+  margin-block-start: 1.5rem;
+}
+
+@media (min-width: 43em) {
+  .layout > * + * {
+    margin-block-start: 0;
+  }
+}
+
+.layout > section {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 58px rgba(255, 255, 255, 0.5);
+  padding: 1rem 1.5rem 1.5rem;
+  font-family: var(--font-family-sans);
+  position: relative;
+}
+
+.layout > section h2 {
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  margin-block-end: 1rem;
+}
+
+/* ==========================================================================
+ * ANCHOR Preamble quote
+ * ========================================================================== */
+
+#preamble {
+  justify-self: center;
+  grid-area: quote;
+  backdrop-filter: blur(8px);
+  padding: 2rem 6rem;
+  position: relative;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    inset 0px 0px 58px rgba(255, 255, 255, 0.5),
+    0 0 100px 0 rgba(96, 111, 211, 0.5);
+}
+
+#preamble p {
+  font-weight: 500;
+  font-style: italic;
+  font-size: var(--font-size-base);
+}
+
+#preamble p + p {
+  margin-block-start: 1rem;
+}
+
+#preamble .left-quote,
+#preamble .right-quote {
+  position: absolute;
+  font-size: 800%;
+  font-weight: 700;
+  color: white;
+  opacity: 0.6;
+  filter: drop-shadow(6px 10px 0 rgba(96, 111, 211, 0.5));
+  line-height: 1;
+}
+
+#preamble .left-quote {
+  left: -0.72em;
+  top: -0.1em;
+}
+
+#preamble .right-quote {
+  bottom: -0.7em;
+  right: -0.72em;
+}
+
+#preamble blockquote {
+  border-left: 0;
+  width: 100%;
+  max-width: 47.25rem;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 68.75em) {
+  #preamble {
+    padding: 2rem 3rem;
+  }
+
+  #preamble .left-quote,
+  #preamble .right-quote {
+    font-size: 1000%;
+    font-weight: 700;
+  }
+
+  #preamble .left-quote {
+    left: -0.75em;
+    top: -0.1em;
+  }
+
+  #preamble .right-quote {
+    bottom: -0.65em;
+    right: -0.75em;
+  }
+
+  #preamble blockquote {
+    padding-inline: 0;
+  }
+}
+
+/* ==========================================================================
+ * ANCHOR "Meetings Soon" section
+ * ========================================================================== */
+
+#meetings-soon {
+  grid-area: meetings-soon;
+  position: relative;
+  background: transparent;
+  border: 0;
+  box-shadow: unset;
+}
+
+#meetings-soon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  /* background-color: rgb(1 54 110 / 20%); */
+  background-color: rgba(10, 117, 194, 0.3);
+  mix-blend-mode: multiply;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  z-index: -1;
+  box-shadow: inset 0px 0px 58px rgb(1 54 110 / 20%);
+}
+
+#meetings-soon h2 {
+  color: white;
+}
+
+/* ==========================================================================
+ * ANCHOR "Regions Served" section
+ * ========================================================================== */
+
+#regions-served {
+  grid-area: regions-served;
+}
+
+#regions-served h2 {
+  margin-bottom: 1rem;
+}
+
+.vac-header {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-sans);
+  color: black;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.other-va-regions {
+  font-size: var(--font-size-sm);
+  font-weight: 300;
+  color: black;
+}
+
+#regions-served ul {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 0.75rem;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+#regions-served li {
+  list-style-type: none;
+  display: inline-block;
+  white-space: no-wrap;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2em;
+  font-size: 0.875rem;
+  font-family: var(--font-family-sans);
+  background-color: white;
+  box-shadow: 4px 6px 0 rgba(96, 111, 211, 0.25);
+  margin: 0;
+}
+
+/* ==========================================================================
+ * ANCHOR "New to AA?" section
+ * ========================================================================== */
+
+#new-to-aa {
+  grid-area: new-to-aa;
+  display: flex;
+  flex-direction: column;
+}
+
+#is-aa-for-you {
+  margin-block-end: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+}
+
+#is-aa-for-you a:first-child {
+  text-decoration: none;
+  font-size: 120%;
+  font-family: var(--font-family-serif);
+  font-style: italic;
+  white-space: nowrap;
+  padding-inline: 1rem;
+  flex-shrink: 0;
+}
+
+#is-aa-for-you a:last-child {
+  background: var(--color-amber-6);
+  color: var(--color-amber-1);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+}
+
+#is-aa-for-you a:last-child iconify-icon {
+  font-size: 1.5em;
+  margin-right: 0.5rem;
+  color: var(--color-amber-2);
+}
+
+#new-to-aa footer {
+  margin-top: auto;
+  text-align: right;
+}
+
+#new-to-aa a.more {
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.75rem 2rem;
+  background: white;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border: 1px solid hsl(154deg 33% 59% / 80%);
+  border-width: 1px 0 0 1px;
+}
+
+/* #new-to-aa a.more::after {
+  display: inline-block;
+  content: "";
+  background-image: var(--icon-chevron);
+  transform: rotate(270deg) scale(0.8);
+  filter: hue-rotate(10deg);
+  width: 1.5em;
+  height: 1.5em;
+} */
+
+/* ==========================================================================
+ * ANCHOR Other situations section
+ * ========================================================================== */
+
+#other-situations {
+  grid-area: other-situations;
+}
+
+#situation-list {
+  padding: 0;
+  margin: 0;
+}
+
+#situation-list li {
+  list-style-type: none;
+  font-family: var(--font-family-sans);
+  margin: 0;
+}
+
+#situation-list li + li {
+  margin-block-start: 0.5em;
+  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+#situation-list a {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  /* padding-block: 1rem; */
+  /* padding-inline-start: 0.5rem; */
+  text-decoration: none;
+}
+#situation-list a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+#situation-list a iconify-icon {
+  color: black;
+  font-size: 180%;
+  align-self: flex-start;
+  /* transform: scale(1.8) translate(0, 0.3rem); */
+}
+
+/* ==========================================================================
+ * ANCHOR "Member Resources" section
+ * ========================================================================== */
+
+#member-resources {
+  grid-area: member-resources;
+  display: flex;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-between;
+}
+
+#member-resources h2 {
+  margin-block-end: 1.5rem
+}
+
+#member-resources section {
+  flex-basis: calc(1 / 3 * 100% - (2 * 1rem));
+}
+
+#member-resources h3 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-block-end: 0.25rem;
+  margin-block-end: 1rem;
+}
+
+#member-resources section {
+  margin: 0;
+}
+
+#member-resources header {
+  width: 100%;
+}
+
+#daily-reflection {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 8px;
+  font-family: var(--font-family-sans);
+  color: black;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-inline: 4rem 2rem;
+  border-block-start: 0;
+  border-inline-end: 0;
+}
+
+#daily-reflection a {
+  display: flex;
+  column-gap: 0.75rem;
+  align-items: center;
+}
+
+#daily-reflection iconify-icon {
+  background: var(--color-amber-6);
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.5rem;
+  height: 100%;
+  border-bottom-left-radius: 4px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  color: var(--color-amber-2);
+}

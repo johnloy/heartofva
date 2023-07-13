@@ -1,6 +1,5 @@
 ---
 import '../assets/common.css'
-// import '../assets/pico.css'
 import '../components/MainNav.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
@@ -34,7 +33,6 @@ const { title, bodyClasses } = Astro.props as Props
       src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"
       defer></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
   </head>
   <body>
@@ -55,88 +53,6 @@ const { title, bodyClasses } = Astro.props as Props
 </script>
 
 <style is:global is:inline>
-  .surface-primary {
-    backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    border-top: 1px solid white;
-  }
-
-  .main-content {
-    padding: 3rem 4rem;
-    margin-bottom: 3rem;
-    display: grid;
-    grid-template-columns: 60% 1fr;
-    grid-template-rows: auto;
-    grid-auto-rows: auto;
-    grid-template-areas:
-      'main aside'
-      'main aside';
-    column-gap: 4rem;
-  }
-
-  .main-content > *:not(aside) {
-    grid-column-start: 1;
-    grid-column-end: 1;
-  }
-
-  .main-content h1 {
-    font-size: var(--font-size-xl);
-  }
-
-  .main-content h2 {
-    font-size: var(--font-size-lg);
-    font-weight: 300;
-    border-block-end: 1px dotted var(--color-green-3);
-    padding-block-end: 0.25rem;
-  }
-
-  .main-content > aside {
-    grid-area: aside;
-    grid-row-start: 2;
-    position: sticky;
-    top: 2rem;
-    margin-top: 2.7rem;
-  }
-  .main-content > aside > .toc {
-    position: absolute;
-    top: 0;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 4px;
-    font-size: var(--font-size-sm);
-    box-shadow: 8px 8px 0 rgba(96,111,211,0.2);
-  }
-
-  .main-content > aside > .toc * {
-    font-size: inherit;
-  }
-
-  .toc h3 {
-    text-transform: uppercase;
-    line-height: 1;
-    margin-block-end: 1.5rem;
-  }
-
-  .toc ul {
-    padding: 0;
-    font-family: var(--font-family-sans);
-    margin-block-end: 0;
-  }
-
-  .toc li {
-    padding: 0;
-    margin-block-end: 0.5rem;
-  }
-
-  .toc > ul > li {
-    font-weight: 700;
-  }
-
-  .toc li li {
-    padding-inline-start: 1rem;
-    font-weight: 300;
-  }
 
 
 </style>
