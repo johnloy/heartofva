@@ -49,7 +49,7 @@
 
 .main-content > *:not(aside) {
   grid-column-start: 1;
-  grid-column-end: 1;
+  grid-column-end: 3;
 }
 
 .main-content > aside {
@@ -58,6 +58,17 @@
   position: sticky;
   top: 2rem;
   margin-top: 2.7rem;
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .main-content > *:not(aside) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .main-content > aside {
+    display: initial;
+  }
 }
 
 /* ANCHOR TOC
