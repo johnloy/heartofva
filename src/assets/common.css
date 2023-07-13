@@ -2472,7 +2472,7 @@ input:not(
 
 .SiteNav > ul > li > :is(a, a:visited) {
   color: #dbfadc;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .SiteNav > ul > li > :is(a:hover, a:focus) {
@@ -2709,9 +2709,9 @@ input:not(
   border-radius: 0;
   border-width: 0 0 1px 0;
   margin-inline: -1.5rem;
-  transform: translate(0, -1.5rem);
+  /* transform: translate(0, -1.5rem); */
   backdrop-filter: blur(2px);
-  margin-block: 0;
+  margin-block-end: 1.5rem;
 }
 
 .MeetingsNav .weekday-filter fieldset {
