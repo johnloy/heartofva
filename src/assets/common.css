@@ -2560,6 +2560,18 @@ input:not(
   box-shadow: none;
 }
 
+.MeetingsNav > summary::-webkit-details-marker {
+  display: none;
+}
+
+.MeetingsNav > summary::marker {
+  display: none;
+}
+
+.MeetingsNav > summary::-moz-list-bullet {
+  list-style-type: none;
+}
+
 @media (min-width: 38em) {
   .MeetingsNav > summary {
     width: max-content;
