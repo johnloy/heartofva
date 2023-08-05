@@ -2316,6 +2316,7 @@ input:not(
 
 .SiteHeader {
   padding-block-end: 1rem;
+  z-index: 1;
 }
 
 .SiteHeader p {
@@ -2752,7 +2753,7 @@ input:not(
   /* left: 0.75rem;
   right: 0.75rem; */
 
-  height: calc(100vh - 112px);
+  height: calc(100vh - 224px);
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-top: 0;
