@@ -2224,6 +2224,7 @@ input:not(
   /* Force <main> to always stretch so the site footer is either
 	   at or below the bottom of the viewport */
   flex-grow: 1;
+  z-index: 0;
 }
 
 :where(body > header, body > main, body > footer) {
@@ -2295,6 +2296,7 @@ input:not(
 .SiteBg {
   position: fixed;
   inset: 0;
+  z-index: -1;
 }
 
 .SiteBg::after {
@@ -2318,7 +2320,6 @@ input:not(
   padding-block-end: 1rem;
   /* Necessary for z-index to be above swiper cards */
   z-index: 1;
-  transform: translate3d(0, 0, 0);
 }
 
 .SiteHeader p {
@@ -2809,7 +2810,7 @@ input:not(
   .MeetingsNav > .dropdown {
     left: 50%;
     right: auto;
-    transform: translate3d(-50%, 0, 1);
+    transform: translateX(-50%);
     border-top-right-radius: 8px;
   }
 }
