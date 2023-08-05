@@ -45,6 +45,7 @@
     "main aside"
     "main aside";
   column-gap: 4rem;
+  /* overflow: hidden; */
 }
 
 .main-content > *:not(aside) {
@@ -54,10 +55,9 @@
 
 .main-content > aside {
   grid-area: aside;
-  grid-row-start: 2;
-  position: sticky;
-  top: 2rem;
-  margin-top: 2.7rem;
+  grid-row: 2 / span 10000;
+  /* position: sticky; */
+  /* top: 0; */
   display: none;
 }
 
@@ -71,22 +71,65 @@
   }
 }
 
+/* ANCHOR Topical Quote
+ * -------------------------------------------------------------------------- */
+
+.topical-quote {
+  /* position: absolute;
+  grid-column-start: 2 !important;
+  grid-column-end: -1 !important; */
+  /* right: 0; */
+  /* top: 0; */
+  margin: 0 0 2rem 0;
+  font-size: var(--font-size-md);
+  font-style: italic;
+  border-inline-color: var(--color-amber-5);
+  color: var(--color-dark-cool-grey);
+}
+
+.topical-quote::after {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, -55%);
+  content: "";
+  width: 800px;
+  height: 800px;
+  border-radius: 400px;
+  background-color: aqua;
+  z-index: -1;
+}
+
+.topical-quote cite {
+  font-style: normal;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+}
+
 /* ANCHOR TOC
  * -------------------------------------------------------------------------- */
 
 .main-content > aside > .toc {
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  top: 2rem;
   background: white;
   padding: 1.5rem;
   border-radius: 4px;
   font-size: var(--font-size-sm);
   box-shadow: 8px 8px 0 rgba(96, 111, 211, 0.2);
   width: 100%;
+  position: sticky;
 }
 
 .main-content > aside > .toc * {
   font-size: inherit;
+}
+
+.main-content > aside > .toc a {
+  text-decoration: none;
+  margin-block-end: 0.75rem;
+  display: block;
 }
 
 .main-content > aside > .toc h3 {
@@ -96,7 +139,7 @@
 }
 
 .main-content > aside > .toc > ul > li + li {
-  margin-block-start: 1.5rem;
+  /* margin-block-start: 1.5rem; */
 }
 
 .main-content > aside > .toc ul {
@@ -113,7 +156,7 @@
 }
 
 .main-content > aside > .toc ul {
-  margin-block-start: 0.5rem;
+  margin-block-start: 0.75rem;
 }
 
 .main-content > aside > .toc li {

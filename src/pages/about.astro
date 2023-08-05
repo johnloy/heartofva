@@ -1,174 +1,149 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
-import '../assets/page-layout.css'
+import Layout from "../layouts/BaseLayout.astro";
+import "../assets/page-layout.css";
 
-export const title = 'About'
+export const title = "About";
 ---
 
 <Layout title={title}>
   <div class="main-content surface-primary">
     <h1>{title}</h1>
-
+    <blockquote class="topical-quote">
+      “A.A. is more than a set of principles; it is a society of alcoholics in
+      action. We must carry the message, else we ourselves can wither and those
+      who haven't been given the truth may die…”
+      <footer>
+        — <cite>As Bill Sees It</cite>
+      </footer>
+    </blockquote>
     <aside>
       <div class="toc">
         <h3>Contents</h3>
         <ul>
+          <li>
+            <a href="#about-website">About This Website</a>
+          </li>
           <li>
             <a href="#about-aa">About Alcoholics Anonymous</a>
           </li>
           <li>
             <a href="#about-hova">About Heart of Virginia</a>
           </li>
-          <li>
-            <a href="#intergroup-services">Heart of Virginia Intergroup Services</a>
-          </li>
         </ul>
       </div>
     </aside>
-    <section id="intro">
+
+    <section id="about-website">
+      <h2>About This Website</h2>
       <p>
-        This website is maintained by the Heart of Virginia (District No. 9)
-        Intergroup, a part of The Virginia Area Committee of A.A. (V.A.C.), and
-        is provided as a clearing house of information related to all AA groups
-        and activities in the district (see: Service Areas of AA Heart of
-        Virginia).
+        This website is maintained by Heart of Virginia District Intergroup, a
+        part of The Virginia Area Committee (VAC) of AA, and is provided as a
+        clearing house of information related to all AA groups and activities in
+        the district. Websites and contact information for other districts in
+        Virginia can be found on the <a
+          href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
+          >Virginia Alcoholics Anonymous website</a
+        >.
       </p>
     </section>
+
     <section id="about-aa">
-      <h2>About Alcoholics Anonymous</h2>
+      <h2>About Alcoholics Anonymous (AA)</h2>
       <p>
-        For information about Alcoholics Anonymous in general, please refer to
-        the <a href="https://www.aa.org/">Alcoholics Anonymous World Services</a
-        > website.
+        For general information about Alcoholics Anonymous, please refer to the
+        official <a href="https://www.aa.org/">Alcoholics Anonymous website</a>
+         run by the <a href="https://www.aa.org/aa-gso"
+          >General Services Office (GSO)</a
+        >. To learn more about what AA is, how it works, who its members are,
+        and how to become a member, refer to <a
+          href="https://www.aa.org/what-is-aa">What is AA</a
+        > on the GSO website?
+      </p>
+
+      <p>
+        If you are new to AA, we encourage you to check out our <a
+          href="/new-to-aa">page for newcomers</a
+        >.
       </p>
     </section>
 
     <section id="about-hova">
-      <h2>About Heart of Virginia</h2>
-
-      <aside>
-        <p>
-          Websites and contact information for other areas of Virginia can be
-          found on the <a
-            href="https://aavirginia.org/member-services/virginia-intergroups-aa-hotlines/"
-            >Virginia Alchoholics Anonymous website</a
-          >.
-        </p>
-      </aside>
+      <h2>About AA Heart of Virginia</h2>
 
       <p>
-        The Heart of Virginia Intergroup (often referred to simply as
-        <em>Intergroup</em>) is an umbrella service organization, under the
-        direction of representatives of district home groups to provide services
-        and sponsor activities for home groups, AA members and individuals in
-        recovery or seeking recovery from alcoholism
+        Heart of Virginia is the name given by its members to District 9 of the
+        Virginia Area of Alcoholics Anonymous. Coordination and cooperation
+        among district home groups and between the district and the Virginia
+        Area (region) and Alcoholics Anonymous General Service Office (GSO;
+        U.S./Canada and global) is facilitated by Heart of Virginia Intergroup
+        (often just called “Intergroup") and its sister organization, the Heart
+        of Virginia District Service Committee (often just called “District”).
       </p>
 
       <p>
-        As a vehicle for coordination and cooperation among home groups,
-        Intergroup helps to achieve efficiency and economy for its home groups
-        and to make AA’s hand more readily available to help the suffering
-        alcoholic. It works in close partnership with a sister organization, the
-        Heart of Virginia Service Committee (often referred to as <em
-          >District</em
-        >). Listed below are some of the services provided by Intergroup.
+        Intergroup and District help to achieve efficiency and economy for its
+        home groups by pooling resources and efforts to provide services that
+        make AA’s hand more readily available to help the suffering alcoholic.
+        Elected representatives of district home groups, the <a
+          href="/service-opportunities#intergroup-rep"
+          >Intergroup Representative</a
+        > and <a href="/service-opportunities#gsr"
+          >General Service Representative</a
+        >, participate in governance of these organizations at regular meetings,
+        while countless volunteers help spread the message and help other
+        alcoholics through their work on Intergroup and District service
+        committees.
       </p>
 
-      <section id="intergroup-services">
-        <h2>Heart of Virginia Intergroup Services</h2>
+      <p>Committees run by District include:</p>
 
-        <h3>Maintain aaheartofva.org</h3>
-        <p>
-          Intergroup maintains this website to provide information over the
-          internet about open and closed meeting (days, times and locations)
-          special events, volunteer opportunities, and other information about
-          JDI, JDSC, and various AA support activities and functions. To post
-          meeting updates and notices on the web site, send the information to <a
-            href="mailto:AACharlottesville@gmail.com"
-            >AACharlottesville@gmail.com</a
-          >.
-        </p>
+      <ul>
+        <li>Archives</li>
+        <li>Cooperation with Intergroup</li>
+        <li>
+          Cooperation with the Professional Community/Public Information
+          (CPC/PI)
+        </li>
+        <li>Corrections</li>
+        <li>Finance &amp; Budget</li>
+        <li>Grapevine</li>
+        <li>Hospitals and Institutions</li>
+      </ul>
 
-        <h3>Run the Central Office</h4>
-        <p>
-          With assistance from JDSC, Intergroup rents an office (Suite 3-A, 1807
-          Emmet Street) for a variety of uses including telecommunications
-          linkage, access to purchase literature and chips, answering calls,
-          maintaining files and records, storing and making available supplies
-          for events. The office is used as a meeting room for committees, open
-          and closed meetings, sponsor/sponsee sessions, and other special
-          meetings.
-        </p>
+      <p>
+        Information about how to get involved in a committee can be found on our
 
-        <h3>Answer Calls</h4>
-        <p>
-          In order to respond to telephone inquiries from persons seeking
-          information about local AA meetings and activities, Intergroup
-          maintains a list of AA volunteers to answer incoming calls. An
-          answering service routes these calls to AA volunteers when no one is
-          available to answer the phone at the Intergroup office. AA volunteers
-          are always needed for this important service of responding to calls.
-          For more information, see the “Service” tab at the web site.
-        </p>
 
-        <h3>Publish Up-to-Date Meeting Information</h4>
-        <p>
-          In addition to web site information, every second month Intergroup
-          prints a list of home group meetings (days, times and locations) for
-          distribution at meetings. To submit updates to meeting schedules send
-          the information to AACharlottesville@gmail.com.
-        </p>
+        <a href="/service-opportunities">Service Opportunities</a> page.
+      </p>
 
-        <h3>Coordinate Special Events</h4>
-        <p>
-          The Intergroup, on its own or in cooperation with JDSC or home groups,
-          sponsors the Christmas and other marathons, the Founder’s Day picnic,
-          conferences, special events and fellowship activities.
-        </p>
+      <p>Services provided by Intergroup include:</p>
 
-        <h3>Supply Literature and Chips to Home Groups</h4>
-        <p>
-          Intergroup maintains at the central office an inventory of AA books
-          and pamphlets for home groups and members to purchase. Also, available
-          is a supply of plastic chips and bronze medallions to mark
-          individual’s time in sobriety. This Intergroup service makes it
-          easier, quicker and less costly for home groups and individuals to
-          obtain AA-authorized books. See the “Literature and Chips” tab at the
-          web site.
-        </p>
-
-        <h3>Serve as a Forum for Communication Among Home Groups</h4>
-        <p>
-          Both Intergroup and JDSC are forums for communication and coordination
-          among home groups. Where there are activities, projects, issues and
-          questions that cut across many home groups, JDI serves as an important
-          focal point for exchange of information and collaboration. Such
-          communication and coordination helps to achieve efficiency and economy
-          for the home groups and to assure AA’s availability to help the
-          suffering alcoholic and those in recovery.
-        </p>
-
-        <h3>Coordinate Issues of Intergroup Interest and Concern</h4>
-        <p>
-          Every home group is entitled and encouraged to send a representative
-          to the monthly JDI meetings, held at 7:00 PM on the first Thursday of
-          the month at Westminster Presbyterian Church, 450 Rugby Road.
-          Individual members are always welcomed guests! Pursuant to the
-          governance bylaws, decisions are made after discussion and voting by
-          groups’ representatives.
-        </p>
-
-        <h3>Financially Support Intergroup Operations and Services</h4>
-        <p>
-          The services provided by Intergroup are made possible by contributions
-          from home groups and AA members. Without those contributions,
-          Intergroup cannot provide the services listed above. Home groups are
-          encouraged to make quarterly contributions to JDI to support ongoing
-          operations and services. Contributions from AA members are always
-          helpful too. Donations can be made payable to Jefferson District
-          Intergroup and mailed to P.O. Box 6911, Charlottesville, VA 22906.
-        </p>
-      </section>
+      <ul>
+        <li>Coordinate issues of intergroup concern</li>
+        <li>
+          Plan and financially support district intergroup activities (e.g.
+          Christmas and other marathons, Founder’s Day celebration, and other
+          fellowship events)
+        </li>
+        <li>
+          Run the <a href="/contact#intergroup-district">central office</a>
+           (store literature and chips for sale, answer calls, maintain records,
+          store supplies for events, meeting space for AA business)
+        </li>
+        <li>Answer the central phone line: (434) 293-6565</li>
+        <li>
+          Answer the central email: <a href="mailto:aacharlottesville@gmail.com"
+            >aacharlottesville@gmail.com</a
+          >
+        </li>
+        <li>
+          Maintain the <a href="https://aaheartofva.org">aaheartofva.org</a>
+           website
+        </li>
+        <li>Maintain a current list of district meetings</li>
+        <li>Supply literature and chips to district groups</li>
+      </ul>
     </section>
   </div>
 </Layout>

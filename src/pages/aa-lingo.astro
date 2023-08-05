@@ -1,20 +1,38 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
-import '../assets/page-layout.css'
+import Layout from "../layouts/BaseLayout.astro";
+import "../assets/page-layout.css";
 
-export const title = 'AA Glossary'
+export const title = "AA Lingo";
 ---
 
 <Layout title={title}>
   <div class="main-content surface-primary">
     <h1>{title}</h1>
-    <section id="intro">
+
+    <aside>
+      <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#speaking-aa">Speaking AA</a></li>
+          <li>
+            <a href="#acronyms-abbreviations">Acronyms and Abbreviations</a>
+          </li>
+          <li>
+            <a href="#terms">About Alcoholics Anonymous</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <section id="speaking-aa">
+      <h2>Speaking AA</h2>
       <p>
-        As a newcomer to AA and meetings, you will hear and read terminology
-        that is most likely unfamiliar
+        From the many years of fellowship and tradition of Alcoholics Anonymous
+        have emerged words and phrases that warrant clarification for the
+        benefit of newcomers. Here are a few!
       </p>
     </section>
-    <section id="aa-acronyms">
+    <section id="acronyms-abbreviations">
       <h2>Acronyms and Abbreviations</h2>
       <dl>
         <dt>AA</dt>
@@ -33,7 +51,7 @@ export const title = 'AA Glossary'
         <dd><a href="#vac">Virginia Area Committee of A.A.</a></dd>
       </dl>
     </section>
-    <section id="aa-terms">
+    <section id="terms">
       <h2>Terms</h2>
       <dl>
         <dt>Al-Anon</dt>
@@ -43,6 +61,9 @@ export const title = 'AA Glossary'
         <dd>definition</dd>
 
         <dt>Closed Meeting</dt>
+        <dd>definition</dd>
+
+        <dt id="district-committee-member">District Committee Member</dt>
         <dd>definition</dd>
 
         <dt>General Service Office</dt>
@@ -73,6 +94,9 @@ export const title = 'AA Glossary'
         <dd>definition</dd>
 
         <dt id="vac">Virginia Area Committee of A.A. (V.A.C.)</dt>
+        <dd>definition</dd>
+
+        <dt id="virginia-area-delegate">Virginia Area Delegate</dt>
         <dd>definition</dd>
       </dl>
     </section>

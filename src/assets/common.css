@@ -1,7 +1,7 @@
 :root {
   --font-family: "Merriweather", serif;
   --font-family-serif: "Merriweather", serif;
-  --font-family-sans: "Merriweather Sans", serif;
+  /* --font-family-sans: "Merriweather Sans", serif; */
   --font-family-mono: "Menlo", "Consolas", "Roboto Mono", "Ubuntu Monospace",
     "Noto Mono", "Oxygen Mono", "Liberation Mono", monospace,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -455,6 +455,8 @@
   --color-azure-3-hsl: 200.83 99.92% 42.9%;
   --color-azure-3: hsl(var(--color-azure-3-hsl));
 
+  --color-dark-cool-grey: #425b71;
+
   --color-style-me: hotpink;
 
   --color-bg-mark: #fff2ca;
@@ -675,6 +677,10 @@ textarea,
 
 [dir="rtl"] {
   direction: rtl;
+}
+
+address {
+  font-style: normal;
 }
 
 /* !SECTION Reset */
@@ -1095,6 +1101,57 @@ a[role="button"]:not([href]) {
   pointer-events: none;
 }
 
+/* ANCHOR Table
+ * -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table :is(th, td) {
+  vertical-align: top;
+}
+
+table.inner-borders {
+  border-collapse: collapse;
+}
+
+table.inner-borders
+  :is(address, blockquote, dl, figure, form, ol, p, pre, table, ul) {
+  margin-block: 0;
+}
+
+table.inner-borders
+  :is(address, blockquote, dl, figure, form, ol, p, pre, table, ul)
+  + * {
+  margin-block-start: 0.75rem;
+}
+
+table.inner-borders :is(th, td) {
+  border: 1px dotted black;
+  padding: 0.5rem 0.75rem;
+}
+
+table.inner-borders :is(th:first-child, td:first-child) {
+  border-inline-start: none;
+}
+
+table.inner-borders :is(td:last-child) {
+  border-inline-end: none;
+}
+
+table.inner-borders tr:first-of-type :is(th, td) {
+  border-block-start: none;
+}
+
+table.inner-borders tr:last-of-type :is(th, td) {
+  border-block-end: none;
+}
+
+table.head-col-align-start th:first-child {
+  text-align: start;
+}
+
 /* ANCHOR Box
  * -------------------------------------------------------------------------- */
 
@@ -1253,6 +1310,9 @@ details[open] > summary::after {
   background-position: left center;
 }
 
+/* ANCHOR Badge
+ * -------------------------------------------------------------------------- */
+
 .badge {
   --_background: var(--background, var(--color-style-me));
   --_text-color: var(--text-color, var(--color-style-me));
@@ -1262,6 +1322,46 @@ details[open] > summary::after {
   border-radius: 1em;
   margin-inline: 0.5rem;
 }
+
+/* ANCHOR Definition list
+ * -------------------------------------------------------------------------- */
+
+dl {
+  display: block;
+  padding: 0;
+  margin-block-end: 1.5rem;
+}
+dt,
+dd {
+  float: left;
+}
+dt {
+  font-weight: 700;
+  clear: left;
+}
+dt::after {
+  content: "–";
+  display: inline-block;
+  margin-inline: 0.5rem;
+}
+dd {
+  margin-block-end: 1rem;
+}
+/* dd {
+  display: table-cell;
+} */
+/* dt,
+dd {
+  display: table-cell;
+} */
+
+/* dt::before {
+  display: block;
+  white-space: pre;
+  content: '';
+  height: 1px;
+  width: 100%;
+} */
 
 /* ==========================================================================
  * SECTION Forms
@@ -2953,6 +3053,10 @@ input:not(
 
 .no-scroll {
   overflow: hidden;
+}
+
+.w-1\/3 {
+  width: calc(1 / 3 * 100%);
 }
 
 /* !SECTION */

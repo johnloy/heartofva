@@ -1,68 +1,139 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
-import '../assets/page-layout.css'
+import Layout from "../layouts/BaseLayout.astro";
+import "../assets/page-layout.css";
 
-export const title = 'New to AA?'
+export const title = "New to AA?";
 ---
 
 <Layout title={title}>
   <div class="main-content surface-primary">
     <h1>{title}</h1>
 
-    <section id="intro">
-      <p>
-        If you are new to AA and seek answers to questions and guidance about
-        AA, we encourage you to <a href="/contact#phone-email"
-          >contact a member</a
-        > today!
-      </p>
-    </section>
+    <blockquote class="topical-quote">
+      “Frequent contact with newcomers and with each other is the bright spot of
+      our lives.”
+      <footer>
+        — <cite>Big Book, Ch. 7</cite>
+      </footer>
+    </blockquote>
 
-    <section id="is-aa-for-you">
-      <h2><a href="https://www.aa.org/aa-you">Is A.A. for you?</a></h2>
-      <p>
-        <a href="https://www.aa.org/self-assessment">Take a self-assessment</a>
-      </p>
-    </section>
+    <aside>
+      <div class="toc">
+        <h3>Contents</h3>
+        <ul>
+          <li>
+            <a href="#getting-started">Getting Started</a>
+          </li>
+          <li>
+            <a href="#growing-as-a-member">Growing as a Member ofAA</a>
+          </li>
+        </ul>
+      </div>
+    </aside>
 
-    <section id="learn-about-aa">
-      <h2>Learn About AA</h2>
+    <section id="getting-started">
+      <h2>Getting Started</h2>
+      <p>
+        If you are thinking of attending an AA meeting, or are still new to the
+        program, here are a few recommended things to do as you begin your
+        journey to sobriety:
+      </p>
+
       <ul>
-        <li><a href="https://www.aa.org/what-is-aa">How AA works</a></li>
-        <li><a href="/meetings">Find a meeting</a></li>
         <li>
-          <a href="https://www.aa.org/information-about-meetings"
-            >What to expect at an A.A. meeting</a
+          If you are uncertain whether you are an alcoholic, read <a
+            href="https://www.aa.org/aa-you"><em>Is AA for You?</em></a
+          > and <a href="https://www.aa.org/self-assessment"
+            >take a self-assessment</a
           >
+        </li>
+        <li>
+          Contact Heart of Virginia through their phone hotline, (434) 293-6565,
+          or email, <a href="mailto:aacharlottesville@gmail.com"></a> for
+          assistance
+        </li>
+        <li>
+          Read about <a href="https://www.aa.org/what-is-aa"
+            >what AA is, and how it works</a
+          >
+        </li>
+        <li>
+          Also take a bit of time to review <a
+            href="https://www.aa.org/resources/literature?terms=&subject%5B%5D=1&format=All&items_per_page=24&sort_bef_combine=title_ASC"
+            >AA’s many pamphlets for newcomers</a
+          >
+        </li>
+        <li>
+          Read <a href="https://www.aa.org/information-about-meetings"
+            ><em>What to Expect at an AA Meeting</em></a
+          >
+        </li>
+        <li><a href="/meetings">Locate a meeting</a> and attend</li>
+        <li>
+          Introduce yourself as a newcomer at your first few meetings (it can be
+          intimidating, but very worth it)
+        </li>
+        <li>
+          Ask for names and phone numbers of meeting attendees (most will want
+          you to call if you need help)
+        </li>
+        <li>
+          Ask about how to get a copy of the <a
+            href="https://www.aa.org/the-big-book">Big Book</a
+          >, our central piece of AA literature, and <a
+            href="https://www.aa.org/living-sober-book">Living Sober</a
+          >, a wonderful guide to navigating a new life of sobriety
+        </li>
+        <li>
+          Pick up a white chip (most meetings will offer one), if you feel ready
+          to commit to AA’s program of maintaining continuous sobriety
+        </li>
+        <li>Attend 90 meetings in 90 days, if possible</li>
+        <li>
+          If AA lingo has you wondering what everyone is talking about, read our
+
+
+          <a href="/aa-lingo">AA Lingo</a> page
+        </li>
+        <li>
+          Pay attention at meetings to identify members willing to sponsor
+        </li>
+        <li>
+          When you are ready, approach a would-be sponsor about beginning
+          sponsorship and working the <a
+            href="https://www.aa.org/the-twelve-steps">12 Steps</a
+          >, as these constitute the core of the AA program
         </li>
       </ul>
     </section>
 
-    <section id="introductory-literature">
-      <h2>Introductory Literature</h2>
-      <ul>
-        <li><a href="https://www.aa.org/aa-you">Is A.A. for you?</a></li>
-        <li><a href="https://www.aa.org/newcomer-asks">A Newcomer Asks</a></li>
-        <li><a href="https://www.aa.org/aa-glance">A.A at a Glance</a></li>
-        <li>
-          <a href="https://www.aa.org/brief-guide-aa">A Brief Guide to A.A.</a>
-        </li>
-        <li>
-          <a
-            href="https://www.aa.org/frequently-asked-questions-about-aa-formerly-44-questions"
-            >Frequently Asked Questions about A.A.</a
-          >
-        </li>
-        <li>
-          <a href="https://www.aa.org/questions-and-answers-sponsorship"
-            >Questions and Answers on Sponsorship</a
-          >
-        </li>
-      </ul>
-      <a
-        href="https://www.aa.org/resources/literature?terms=&subject%5B%5D=1&format=36&items_per_page=24&sort_bef_combine=title_ASC"
-        >All AA literature</a
-      >
+    <section id="growing-as-a-member">
+      <h2>Growing as Member of AA</h2>
+      <p>
+        After some time attending meetings, we recommend getting involved in the
+        fellowship and service aspects of AA for all the benefits they bring to
+        help keep you sober long-term.
+      </p>
+      <p>
+        Fellowship takes many forms, from deciding to join a home group (a
+        meeting group with which you wish to become more involved), to attending
+        special group and intergroup events, to socializing with other AA
+        members outside of meetings and AA events. The Heart of Virginia
+        District is fortunate to have a wealth of home groups and events for you
+        to experience the gifts of connecting with other alcoholics. Take
+        advantage!
+      </p>
+
+      <p>
+        Service also takes many forms in AA, such as helping out during
+        meetings, assisting individual AA members as much as possible, becoming
+        a sponsor, taking on a position in a committee, and volunteering for
+        Intergroup and District service, and even representing AA at the levels
+        of the Virginia area and the General Service Conference. Detailed
+        information about service in AA can be found on our <a
+          href="/service-opportunities">Service Opportunities</a
+        > page.
+      </p>
     </section>
   </div>
 </Layout>
