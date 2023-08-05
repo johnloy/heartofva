@@ -229,7 +229,6 @@
   color: white;
 }
 
-
 /* ==========================================================================
  * ANCHOR "Regions Served" section
  * ========================================================================== */
@@ -419,7 +418,7 @@
 }
 
 #member-resources h2 {
-  margin-block-end: 1.5rem
+  margin-block-end: 1.5rem;
 }
 
 #member-resources section {
@@ -456,17 +455,24 @@
 }
 
 #daily-reflection {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: relative;
   border-radius: 8px;
   font-family: var(--font-family-sans);
   color: black;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
   padding-inline: 4rem 2rem;
-  border-block-start: 0;
-  border-inline-end: 0;
+  margin-block-end: 1.5rem;
+}
+
+@media (min-width: 48em) {
+  #daily-reflection {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-block-start: 0;
+    border-inline-end: 0;
+  }
 }
 
 #daily-reflection a {
@@ -483,9 +489,16 @@
   top: 0;
   font-size: 1.5rem;
   height: 100%;
+  border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   margin: 0;
   display: flex;
   align-items: center;
   color: var(--color-amber-2);
+}
+
+@media (min-width: 48em) {
+  #daily-reflection iconify-icon {
+    border-top-left-radius: 0;
+  }
 }
