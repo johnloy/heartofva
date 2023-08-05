@@ -1,0 +1,25 @@
+div#tsml-ui {
+  margin: 0;
+  width: 100% !important;
+  grid-column-end: -1;
+}
+
+div.tsml-ui.tsml-ui {
+  background-color: transparent !important;
+}
+
+div.tsml-ui h1[class] {
+  font-size: 2rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+div.tsml-ui .container-fluid {
+  padding: 0 !important;
+}
+
+.tsml-ui [type="search"] + button.dropdown-toggle {
+  width: auto;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}

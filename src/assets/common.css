@@ -3003,8 +3003,22 @@ input:not(
   flex-grow: 2;
 }
 
+.SiteFooter .mailing-address address + address {
+  margin-block-start: 0.75rem;
+}
+
+@media (min-width: 38em) {
+  .SiteFooter .mailing-address address + address {
+    margin-block-start: 0;
+  }
+}
+
 .SiteFooter section {
   margin: 0;
+}
+
+.SiteFooter section + section {
+  margin-block: 1.5rem;
 }
 
 .SiteFooter hr {
