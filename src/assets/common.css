@@ -2316,7 +2316,8 @@ input:not(
 
 .SiteHeader {
   padding-block-end: 1rem;
-  z-index: 1;
+  /* Necessary for z-index to be above swiper cards */
+  transform: translateZ(0);
 }
 
 .SiteHeader p {
