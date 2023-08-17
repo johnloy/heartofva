@@ -56,9 +56,9 @@ const renderRegionMeetings = (meetingsByLocation, weekday) => {
                 ${meetingsCount
                   ? html`<a
                       class="location"
-                      href="/meetings?weekday=${weekday}&region=${kebabCase(
+                      href=${`/meetings?weekday=${weekday}&region=${kebabCase(
                         location,
-                      )}"
+                      )}`}
                       >${location}</a
                     >`
                   : html`<span class="location">${location}</span>`}<span
